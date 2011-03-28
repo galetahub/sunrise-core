@@ -1,0 +1,51 @@
+<div class='structure'>
+  <div class="row-container">
+    <div class="white-row">
+      <div class="r-corn">
+        <%= link_to @structure.title, root_path, :class=>"dark-arr", :id=>"a#{@structure.id}" %>
+        
+        <div class="act-bl">
+          <% if can? :create, Structure, :context => :manage %>
+            <%= link_to t('manage.buttons.create_structure'), new_manage_structure_path, :class=>"create" %>
+          <% end %>
+          
+          <% if can? :update, @structure, :context => :manage %>
+            <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_structure_page_path(@structure.id), :class=>"icons" %>
+            <%= link_to image_tag("manage/ico_settings.gif", :title=>t('manage.label_settings')), edit_manage_structure_path(@structure.id), :class=>"icons" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id='structures' class="stage">
+    <%= render :partial=>"manage/structures/structure", :collection=>@structures %>
+  </div>
+</div>
+
+<script type='text/javascript'>
+  $(document).ready(function(){
+    Manage.init_collection('structures', 'gray-row');
+    
+    Tree.init('#structures');
+    
+    $('a.move_up').bind("ajax:complete", function(){
+      var sid = $(this).attr('href').replace('/manage/structures/', '');
+      
+      Manage.move_node('structure_' + parseInt(sid), 'up'); 
+    });
+    
+    $('a.move_down').bind("ajax:complete", function(){
+      var sid = $(this).attr('href').replace('/manage/structures/', '');
+      
+      Manage.move_node('structure_' + parseInt(sid), 'down');
+    });
+  });
+</script>
+
+<style type="text/css">
+  .struct-bl .bot-bg {
+    position: relative;
+    width: 920px;
+  }  
+</style>

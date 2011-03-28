@@ -1,0 +1,32 @@
+<% unless model.new_record? %>
+  <div class="gray-blocks">
+    <div style="padding: 20px;" class="bg-bl">
+      <div style="padding: 0px 0px 15px;" class="gr-title"><%= t('manage.pictures') %></div>
+      
+      <%= content_tag(:div, :id=>"swf_collection_#{model.id}", :class=>"galery") do %>
+        <%= render :partial=>"/manage/assets/picture", :collection => model.pictures %>
+      <% end %>
+      
+      <div style="padding-top:20px;">
+        <%= content_tag(:span, nil, :id=>"swf_button_#{model.id}", :class=>"white-but") %>
+        <%= content_tag(:div, nil, :id=>"swf_container_#{model.id}") %>
+      </div>
+    </div>
+  </div>
+  
+  <%= render :partial=>"/manage/assets/swfscript", :locals=>{:model=>model, :klass=>model.pictures.name } %>
+  
+  <script type='text/javascript'>
+    $(document).ready(function(){
+      Manage.init_assets('div.galery', '<%= sort_manage_assets_path(:klass => model.pictures.name) %>');
+    });
+  </script>
+  <script id="asset_tmpl" type="text/x-jquery-tmpl">
+    <div id="<%= dom_class(model.class.reflections[:pictures].klass) %>_${id}" class="asset ill">
+      <%= link_to image_tag("manage/empty.gif", :alt=>t('manage.delete'), :title=>t('manage.delete')), 
+          "/manage/assets/${id}", :remote => true, :method => :delete, :confirm => t('manage.confirm_delete'), :class => "del" %>
+              
+      <a class="fancybox" href="${link_path}"><img title="${image_title}" src="${image_path}"></a>
+    </div>
+  </script>
+<% end %>

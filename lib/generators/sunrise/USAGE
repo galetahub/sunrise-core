@@ -1,0 +1,7 @@
+Usage:
+  rails generate sunrise:install
+
+Options:
+                 
+Example:
+  rails g sunrise:install

@@ -1,0 +1,16 @@
+@charset "utf-8";
+.main-menu ul, .head .user, .duo-bl, .dinamic-container, .dinamic-inner, .pagination, .buts, .gray-blocks .galery, .gray-blocks .bg-bl, .gray-blocks .ill-bl, .gray-blocks, .file-types, .user-buts, .back-but-bl   {
+	height: 1%;	
+}
+.act-bl a.icons:hover {
+	 background-image: none;
+ 	 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/but_bg.png,sizingMethod=scale);
+}
+.pagination a:hover {
+	 background-image: none;
+ 	 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/page_arr_hover.png,sizingMethod=scale);
+}
+.gray-blocks .galery .ill .del {
+	 background-image: none;
+ 	 filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src=images/transp_cross.png,sizingMethod=scale);
+}

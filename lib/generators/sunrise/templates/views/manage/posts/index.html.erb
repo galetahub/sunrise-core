@@ -1,0 +1,37 @@
+<div class="duo-bl">
+  <div class="left-part">
+    <div class="content">
+    	<div class="row-container">
+        <div class="white-row">
+          <div class="r-corn">
+            <%= link_to @structure.title, manage_structure_posts_path(@structure.id), :class=>"dark-text" %>
+            
+            <div class="act-bl">
+              <% if can? :create, Post, :context => :manage %>
+                <%= link_to t('manage.add'), new_manage_structure_post_path(@structure.id), :class=>"create" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="posts" class="stage">
+        <%= render :partial=>"manage/posts/post", :collection=>@posts %>
+        <%= will_paginate @posts, options_for_pagination %>
+      </div>
+      
+      <script type='text/javascript'>
+        $(document).ready(function(){
+          Manage.init_collection('posts', 'dinamic-bl');
+        });
+      </script>
+      
+    </div>
+  </div>
+  
+  <div class="right-part">
+    <div class="filter-right">
+      <%= render :partial=>"manage/posts/model_filter" %>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,248 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: "Имя"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждения пароля"
+        avatar: "Аватарка"
+        birthday: "Дата рождения"
+        city_name: "Город"
+        about: "О себе"
+        remember_me: "Запомнить меня"
+      
+      structure:
+        title: "Название"
+        title_ru: "Название (рус.)"
+        title_en: "Название (eng.)"
+        parent_id: "Главная категория"
+        is_visible: "Отображать?"
+        kind: "Тип страницы"
+        redirect_url: "Перенаправление (URL)"
+        position: "Позиция"
+      
+      header:
+        title: "Заглавие страницы"
+        title_ru: "Заглавие страницы (рус.)"
+        title_en: "Заглавие страницы (eng.)"
+        keywords: "Ключевые слова"
+        keywords_ru: "Ключевые слова (рус.)"
+        keywords_en: "Ключевые слова (eng.)"
+        description: "Описание страницы"
+        description_ru: "Описание страницы (рус.)"
+        description_en: "Описание страницы (eng.)"
+      
+      post:
+        title: "Название"
+        title_ru: "Название (рус.)"
+        title_en: "Название (eng.)"
+        content: "Содержание"
+        content_ru: "Содержание (рус.)"
+        content_en: "Содержание (eng.)"
+        created_at: "Дата/Время"
+        picture: "Картинка"
+      
+      page:
+        title: "Название"
+        title_ru: "Название (рус.)"
+        title_en: "Название (eng.)"
+        content: "Содержание"
+        content_ru: "Содержание (рус.)"
+        content_en: "Содержание (eng.)"
+      
+      tag:
+        name: "Название"
+     
+      feedback:
+        name: "Имя"
+        email: "Email"
+        kind: "Категория"
+        user_id: "Пользователь"
+        remote_ip: "IP адрес"
+        user_agent: "Версия браузера"
+        message: "Сообщение"
+              
+  manage:
+    title: "Система<br />управления"
+    go_site: "Перейти на сайт"
+    exit: "Выход"
+    page_title: "Управление сайтом"
+    site_edit: "Система управления"
+    root: "Перейти на сайт"
+    users: "Пользователи"
+    label_settings: "Настройки"
+    structure: "Структура"
+    new_structure: "Создать раздел"
+    user_actions: "Действия"
+    posts: "Блог"
+    new_post: "Добавить пост"
+    confirm_delete: "Вы действительно хотите удалить запись?"
+    prev: "Предыдущая"
+    next: "Следующая"
+    max_size: "Макс разм."
+    keywords: "Ключевые слова"
+    edit: "Редактировать"
+    delete: "Удалить"
+    add: "Добавить"
+    create: "Создать"
+    cancel: "Отменить"
+    update: "Обновить"
+    sort: "Сортировать"
+    pictures: "Фотографии"
+    download: "Скачать"
+    close: "Закрыть"
+    
+    menu:
+      structures: "Структура"
+      users: "Пользователи"
+      system_messages: "Системные сообщения"
+      settings: "Настройки"
+      other: "Другие"
+      posts: "Новости"
+      categories: "Категории"
+      statisticts: "Статистика"
+      videos: "Конкурсное видео"
+      questions: "Вопросы и ответы"
+      cocktails: "Shake в банке"
+      tracks: "Музыка"
+      wallpapers: "Обои"
+      reviews: "голоса"
+    
+    settings:
+      title: "Настройки"
+      mailer: "Почта"
+      route: "Домен"
+      contacts: "Контакты"
+    
+    locale:
+      ru: "русский"
+      en: "английский"
+      uk: "украинский"
+    
+    model_filter: 
+      title: "Фильтр данных"
+      filter: "Фильтр"
+      search: "Поиск"
+      clear: "Очистить"
+    
+    position:
+      down: "Опустить вниз"
+      up: "Поднять вверх"
+    
+    buttons:
+      create_structure: "Создать раздел"
+    
+    user:
+      actions: "действия"
+      events:
+        register: "Регистрация"
+        suspend: "Заморозить"
+        delete: "Удалить"
+        unsuspend: "Разморозить"
+        activate: "Активировать"
+      roles: "Роли"
+      
+    users:
+      activated_at: "активация"
+      last_login_ip: "ip"
+      email: "email"
+      category: "категория"
+      name: "Имя"
+      
+      sort:
+        _: "-"
+        created_at_desc: "по дате по убыванию"
+        created_at_asc: "по дате по возрастанию"
+        name_desc: "по имени по убыванию"
+        name_asc: "по имени по возрастанию"
+    
+    structure:
+      kind:
+        page: "Текстовая страничка"
+        posts: "Блоги"
+        main: "Главная страничка"
+        promo: "Конкурс"
+        lessons: "Приватные уроки"
+        faq: "Вопросы и ответы"
+        shake: "Shake в банке"
+        downloads: "Downloads"
+        redirect: "Redirect"
+        tracks: "Музыка"
+        wallpapers: "Обои"
+        group: "Група страничок"
+      
+      position:
+        default: "По умолчанию"
+        menu: "Главное меню"
+        bottom: "Внизу"
+    
+    role:
+      kind:
+        guest: "Гость"
+        default: "Клиент"
+        moderator: "Модератор"
+        admin: "Aдминистратор"
+        redactor: "Редактор"
+        
+    tags:
+      sort:
+        _: "-"
+        created_at_desc: "по дате по убыванию"
+        created_at_asc: "по дате по возрастанию"
+        name_desc: "по названию по убыванию"
+        name_asc: "по названию по возрастанию"
+    
+    posts:
+      sort:
+        _: "-"
+        created_at_desc: "по дате по убыванию"
+        created_at_asc: "по дате по возрастанию"
+        title_desc: "по названию по убыванию"
+        title_asc: "по названию по возрастанию"
+    
+    sort_columns:
+      _: "-"
+      created_at_desc: "по дате по убыванию"
+      created_at_asc: "по дате по возрастанию"
+      title_desc: "по названию по убыванию"
+      title_asc: "по названию по возрастанию"
+      name_desc: "по названию по убыванию"
+      name_asc: "по названию по возрастанию"
+      position_desc: "за позицией по убыванию"
+      position_asc: "за позицией по возрастанию"
+      sort_order_desc: "по сортировке по убыванию"
+      sort_order_asc: "по сортировке по возрастанию"
+      
+  flash:
+    manage:      
+      actions:
+        create:
+          success: "Запись успешно создана"
+          failure: "Возникли ошибки при сохранении данных"
+        update:
+          success: "Запись успешно обновлена"
+          failure: "Возникли ошибки при обновлении данных"
+        destroy:
+          success: "Запись успешно удалена"
+          failure: "Возникли ошибки при удалении данных"
+        
+      users:
+        create:
+          success: "Пользователь успешно создан"
+          failure: "Возникли ошибки при создании пользователя"
+        update:
+          success: "Данные пользователя успешно обновлено"
+      
+      settings:
+        create:
+          success: "Настройки успешно обновлены"
+          failure: "Возникли ошибки при сохранении данных"
+      
+      pages:
+        create:
+          success: "Страничка успешно сохранена"
+          failure: "Возникли ошибки при сохранении данных"
+        update:
+          success: "Страничка успешно сохранена"
+          failure: "Возникли ошибки при сохранении данных"

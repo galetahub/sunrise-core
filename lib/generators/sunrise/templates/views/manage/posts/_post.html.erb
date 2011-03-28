@@ -1,0 +1,31 @@
+<%= content_tag(:div, :id => dom_id(post), :class=>"dinamic-bl") do %>
+  <div class="act-bl" style="display:none;">
+    <% if can? :update, post, :context => :manage %>
+      <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_structure_post_path(@structure.id, post.id), :class=>"icons" %>
+    <% end %>
+    
+    <% if can? :delete, post, :context => :manage %>
+      <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), manage_structure_post_path(@structure.id, post.id), 
+            :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+    <% end %>
+  </div>
+  
+  <div class="bot-bg">
+    <div class="dinamic-container">
+    	<div class="right-data">	
+        <div class="right-data-cont">
+          <div class="dinamic-inner">
+          	<div class="r-block">
+              <div class="r-block-cont">
+                <%= link_to post.title, edit_manage_structure_post_path(@structure.id, post.id), :class=>"title" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="left-data">
+        <span class="data"><%= raw I18n.l(post.created_at, :format=>"<span>%d/%m</span>%Y") %></span>
+      </div>
+    </div>
+  </div>
+<% end %>

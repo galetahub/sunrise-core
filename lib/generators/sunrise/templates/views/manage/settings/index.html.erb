@@ -1,0 +1,14 @@
+<div class="edit-bl">
+  <div class="bot-bg">
+    <div class="block-title"><%= t('manage.edit') %>:</div>
+    <%= form_for Freeberry::SystemSettings.ostruct, :as => :settings, :url => manage_settings_path, :html => { :id => "settings_form" } do |f| -%>
+      <%= render :partial=>"manage/settings/form", :object => f %>
+      
+      <div style="padding: 20px 0px 10px 20px;" class="buts">
+        <%= link_to_function content_tag(:span, t('manage.update')), "$('#settings_form').submit()", :class=>"gr" %>
+        <%= link_to t('manage.cancel'), manage_settings_path, :class=>"erase" %>
+        <%= f.submit t('manage.update'), :style=>"display:none;" %>
+      </div>
+    <% end %>
+  </div>
+</div>

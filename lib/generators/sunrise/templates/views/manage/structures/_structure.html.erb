@@ -1,0 +1,34 @@
+<%= content_tag(:div, :id=>dom_id(structure), :class=>"row-container") do %>
+  <div class="gray-row">
+    <div class="r-corn">
+      <%= link_to structure.title, edit_structure_record_path(structure), :class=>(structure.descendants_count.zero? ? "dark-text" : "dark-arr"), :id=>"a#{structure.id}" %>
+      <div class="act-bl" style="display:none;">
+        <% if can? :update, structure, :context => :manage %>
+          <%= link_to image_tag("manage/ico_down.gif", :alt=>t('manage.position.down'), :title=>t('manage.position.down')), 
+              move_manage_structure_path(:id => structure.id, :direction => 'down', :format => :json),
+              :remote => true,
+              :class=>"icons move_down" %>
+              
+          <%= link_to image_tag("manage/ico_up.gif", :alt=>t('manage.position.up'), :title=>t('manage.position.up')), 
+              move_manage_structure_path(:id => structure.id, :direction => 'up', :format => :json),
+              :remote => true,
+              :class=>"icons move_up" %>
+          
+          <%= link_to image_tag("manage/ico_edit.gif", :alt=>t('manage.edit'), :title=>t('manage.edit')), edit_structure_record_path(structure), :class=>"icons" %>
+          <%= link_to image_tag("manage/ico_settings.gif", :alt=>t('manage.label_settings'), :title=>t('manage.label_settings')), edit_manage_structure_path(:id=>structure.id), :class=>"icons" %>
+        <% end %>
+        
+        <% if can? :delete, structure, :context => :manage %>
+          <%= link_to image_tag("manage/ico_del.gif", :alt=>t('manage.delete'), :title=>t('manage.delete')), manage_structure_path(:id=>structure.id), 
+              :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% unless structure.descendants_count.zero? %>
+    <%= content_tag(:div, :class=>"stage", :id=>"structure_#{structure.id}_children") do %>
+      <%= render :partial=>"manage/structures/structure", :collection=>structure.children %>
+    <% end %>
+  <% end %>
+<% end %>

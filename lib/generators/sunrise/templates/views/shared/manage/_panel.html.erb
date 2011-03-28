@@ -1,0 +1,34 @@
+<% if content_manager? %>
+  <div id="manage-panel">
+    <div class="panel-head">
+      <%= link_to image_tag("manage/panel/maximise_but.gif", :alt=>'', :title=>''), manage_structures_path, :class=>"maximize" %>
+    	<div class="p-logo"><%=raw t('manage.title') %></div>
+      <div class="panel-main-menu">
+      	<ul>
+      	  <% if can? :read, Structure, :context => :manage %>
+           	<li><%= link_to_unless_current_span2 t('manage.menu.structures'), manage_structures_path %></li>
+         	<% end %>
+         	
+         	<% if can? :read, User, :context => :manage %>
+            <li><%= link_to_unless_current_span2 t('manage.menu.users'), manage_users_path %></li>
+          <% end %>
+          
+          <% if can? :read, :settings, :context => :manage %>
+            <li><%= link_to_unless_current_span2 t('manage.menu.settings'), manage_settings_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="p-user">
+        <div class="p-user-info">
+          <div class="p-info">
+            <%= link_to current_user.name, edit_manage_user_path(current_user), :class=>"p-name" %>
+            <%= link_to t('manage.exit'), destroy_user_session_path, :class=>"p-exit" %>
+          </div>
+        </div>
+        <div class="p-user-foto">
+          <%= link_to manage_user_avatar_tag(current_user, :type=>:small), edit_manage_user_path(current_user) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

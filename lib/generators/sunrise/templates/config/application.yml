@@ -1,0 +1,4 @@
+mailer:
+  subject_prefix: "[<%= app_name %>] "
+  from: "no-reply@aimbulance.com"
+  reply_to: "info@aimbulance.com"

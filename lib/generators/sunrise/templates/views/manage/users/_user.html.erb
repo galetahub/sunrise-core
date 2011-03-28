@@ -1,0 +1,55 @@
+<%= content_tag(:div, :id=>dom_id(user), :class=>"dinamic-bl #{user.state}") do %>
+  <div class="act-bl" style="display:none;">
+    <% if can? :update, user, :context => :manage %>
+      <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_user_path(:id=>user.id), :class=>"icons" %>
+    <% end %>
+    
+    <% if can? :delete, user, :context => :manage %>
+      <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), manage_user_path(:id=>user.id), 
+            :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
+    <% end %>
+  </div>
+  
+  <div class="bot-bg">
+    <div class="dinamic-container">
+    	<div class="right-data">	
+        <div class="right-data-cont">
+          <div class="dinamic-inner">
+          	<div class="r-block">
+              <div class="r-block-cont">
+                <%= link_to user.name, edit_manage_user_path(:id=>user.id), :class=>"title" %>
+
+                <table border="0" width="100%" cellspacing="0" cellpadding="0" class="inf">
+                  <tbody>
+                    <tr>
+                      <td class="left"><%= t('manage.users.email') %>:</td>
+                      <td><%= mail_to user.email %></td>
+                    </tr>
+                    <tr>
+                      <td class="left"><%= t('manage.users.last_login_ip') %>:</td>
+                      <td><%= user.last_sign_in_ip %></td>
+                    </tr>
+                    <tr>
+                      <td class="left"><%= t('manage.users.activated_at') %>:</td>
+                      <td><%= I18n.l(user.confirmed_at, :format=>"%d.%m.%Y %H:%M") if user.confirmed? %></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="user-buts">
+                  <% user.events_for_current_state.each do |event| %>
+                    <%= link_to content_tag(:span, t("manage.user.events.#{event}")), "/manage/users/#{user.id}/#{event}", 
+                          :method => :post, :class => event %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="l-block"><%= manage_user_avatar_tag(user, :type=>:thumb) %></div>
+          </div>
+        </div>
+      </div>
+      <div class="left-data">
+        <span class="data"><%= raw I18n.l(user.created_at, :format=>"<span>%d/%m</span>%Y") %></span>
+      </div>
+    </div>
+  </div>
+<% end %>

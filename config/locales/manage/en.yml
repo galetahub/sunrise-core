@@ -1,0 +1,248 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm Password"
+        avatar: "Avatar"
+        birthday: "Birthday"
+        city_name: "City"
+        about: "About"
+        remember_me: "Remember me"
+      
+      structure:
+        title: "Name"
+        title_ru: "Name (Rus)"
+        title_en: "Name (eng.)"
+        parent_id: "Main Categories"
+        is_visible: "Show?"
+        kind: "Page Type"
+        redirect_url: "Redirect (URL)"
+        position: "Position"
+      
+      header:
+        title: "Title page"
+        title_ru: "Title page (Rus)"
+        title_en: "Title page (eng.)"
+        keywords: "Keywords"
+        keywords_ru: "Keywords (Rus)"
+        keywords_en: "Keywords (eng.)"
+        description: "Page Description"
+        description_ru: "Description page (Rus)"
+        description_en: "Page Description (eng.)"
+      
+      post:
+        title: "Name"
+        title_ru: "Name (Rus)"
+        title_en: "Name (eng.)"
+        content: "Content"
+        content_ru: "Content (Rus)"
+        content_en: "Contents (eng.)"
+        created_at: "Date / Time"
+        picture: "Picture"
+      
+      page:
+        title: "Name"
+        title_ru: "Name (Rus)"
+        title_en: "Name (eng.)"
+        content: "Content"
+        content_ru: "Content (Rus)"
+        content_en: "Contents (eng.)"
+      
+      tag:
+        name: "Name"
+     
+      feedback:
+        name: "Name"
+        email: "Email"
+        kind: "Category"
+        user_id: "User"
+        remote_ip: "IP address"
+        user_agent: "Browser Version"
+        message: "Message"
+              
+  manage:
+    title: "System <br /> Management"
+    go_site: "Go to site"
+    exit: "Exit"
+    page_title: "Site Manager"
+    site_edit: "Management system"
+    root: "Go to site"
+    users: "Community"
+    label_settings: "Settings"
+    structure: "Structure"
+    new_structure: "Create Section"
+    user_actions: "Actions"
+    posts: "Blog"
+    new_post: "Add Post"
+    confirm_delete: "Are you sure you want to delete the record?"
+    prev: "Previous"
+    next: "Next"
+    max_size: "Max dim."
+    keywords: "Keywords"
+    edit: "Edit"
+    delete: "Delete"
+    add: "Add"
+    create: "Create"
+    cancel: "Cancel"
+    update: "Refresh"
+    sort: "Sort"
+    pictures: "Photos"
+    download: "Download"
+    close: "Close"
+    
+    menu:
+      structures: "Structure"
+      users: "Community"
+      system_messages: "System messages"
+      settings: "Settings"
+      other: "Others"
+      posts: "News"
+      categories: "Categories"
+      statisticts: "Statistics"
+      videos: "Video Contest"
+      questions: "FAQ"
+      cocktails: "Shake the Bank"
+      tracks: "Music"
+      wallpapers: "Wallpaper"
+      reviews: "vote"
+    
+    settings:
+      title: "Settings"
+      mailer: "Mail"
+      route: "Domain"
+      contacts: "Contact"
+    
+    locale:
+      ru: "Russian"
+      en: "English"
+      uk: "Ukrainian"
+    
+    model_filter: 
+      title: "Filter data"
+      filter: "Filter"
+      search: "Search"
+      clear: "Clean"
+    
+    position:
+      down: "Lower down"
+      up: "Raise Up"
+    
+    buttons:
+      create_structure: "Create Section"
+    
+    user:
+      actions: "action"
+      events:
+        register: "Registration"
+        suspend: "Freeze"
+        delete: "Delete"
+        unsuspend: "Lift the freeze"
+        activate: "Activate"
+      roles: "Raleigh"
+      
+    users:
+      activated_at: "activation"
+      last_login_ip: "ip"
+      email: "email"
+      category: "category"
+      name: "Name"
+      
+      sort:
+        _: "-"
+        created_at_desc: "by date descending"
+        created_at_asc: "date ascending"
+        name_desc: "name descending"
+        name_asc: "name ascending"
+    
+    structure:
+      kind:
+        page: "Text Page"
+        posts: "Blogs"
+        main: "Home Page"
+        promo: "Contest"
+        lessons: "Private lessons"
+        faq: "FAQ"
+        shake: "Shake the Bank"
+        downloads: "Downloads"
+        redirect: "Redirect"
+        tracks: "Music"
+        wallpapers: "Wallpaper"
+        group: "Група stranichok"
+      
+      position:
+        default: "By default"
+        menu: "Main Menu"
+        bottom: "Below"
+    
+    role:
+      kind:
+        guest: "Guest"
+        default: "Client"
+        moderator: "Moderator"
+        admin: "Administrator"
+        redactor: "Editor"
+        
+    tags:
+      sort:
+        _: "-"
+        created_at_desc: "by date descending"
+        created_at_asc: "date ascending"
+        name_desc: "by name descending"
+        name_asc: "by name ascending"
+    
+    posts:
+      sort:
+        _: "-"
+        created_at_desc: "by date descending"
+        created_at_asc: "date ascending"
+        title_desc: "by title descending"
+        title_asc: "by title ascending"
+    
+    sort_columns:
+      _: "-"
+      created_at_desc: "by date descending"
+      created_at_asc: "date ascending"
+      title_desc: "by title descending"
+      title_asc: "by title ascending"
+      name_desc: "by name descending"
+      name_asc: "by name ascending"
+      position_desc: "the attitude of descending"
+      position_asc: "for the position of the ascending"
+      sort_order_desc: "to sort in descending order"
+      sort_order_asc: "to sort in ascending order"
+      
+  flash:
+    manage:      
+      actions:
+        create:
+          success: "Record created successfully"
+          failure: "Errors during data retention"
+        update:
+          success: "Record updated successfully"
+          failure: "There were errors in the updating"
+        destroy:
+          success: "Record deleted successfully"
+          failure: "There were errors while removing data"
+        
+      users:
+        create:
+          success: "You have successfully created"
+          failure: "Some errors occurred while creating user"
+        update:
+          success: "Data updated successfully"
+      
+      settings:
+        create:
+          success: "Successfully updated"
+          failure: "Errors during data retention"
+      
+      pages:
+        create:
+          success: "Site successfully saved"
+          failure: "Errors during data retention"
+        update:
+          success: "Site successfully saved"
+          failure: "Errors during data retention"

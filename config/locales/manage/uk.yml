@@ -1,0 +1,248 @@
+uk:
+  activerecord:
+    attributes:
+      user:
+        name: "Ім'я"
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Підтвердження пароля"
+        avatar: "Аватарки"
+        birthday: "Дата народження"
+        city_name: "Місто"
+        about: "Про себе"
+        remember_me: "Запам'ятати мене"
+      
+      structure:
+        title: "Назва"
+        title_ru: "Назва (рос.)"
+        title_en: "Назва (eng.)"
+        parent_id: "Головна категорія"
+        is_visible: "Відображати?"
+        kind: "Тип сторінки"
+        redirect_url: "Перенаправлення (URL)"
+        position: "Позиція"
+      
+      header:
+        title: "Заголовок сторінки"
+        title_ru: "Заголовок сторінки (рос.)"
+        title_en: "Заголовок сторінки (eng.)"
+        keywords: "Ключові слова"
+        keywords_ru: "Ключові слова (рос.)"
+        keywords_en: "Ключові слова (eng.)"
+        description: "Опис сторінки"
+        description_ru: "Опис сторінки (рос.)"
+        description_en: "Опис сторінки (eng.)"
+      
+      post:
+        title: "Назва"
+        title_ru: "Назва (рос.)"
+        title_en: "Назва (eng.)"
+        content: "Зміст"
+        content_ru: "Зміст (рос.)"
+        content_en: "Зміст (eng.)"
+        created_at: "Дата / Час"
+        picture: "Зображення"
+      
+      page:
+        title: "Назва"
+        title_ru: "Назва (рос.)"
+        title_en: "Назва (eng.)"
+        content: "Зміст"
+        content_ru: "Зміст (рос.)"
+        content_en: "Зміст (eng.)"
+      
+      tag:
+        name: "Назва"
+     
+      feedback:
+        name: "Ім'я"
+        email: "Email"
+        kind: "Категорія"
+        user_id: "Користувач"
+        remote_ip: "IP адреса"
+        user_agent: "Версія браузера"
+        message: "Повідомлення"
+              
+  manage:
+    title: "Система <br /> управління"
+    go_site: "Перейти на сайт"
+    exit: "Вихід"
+    page_title: "Управління сайтом"
+    site_edit: "Система управління"
+    root: "Перейти на сайт"
+    users: "Користувачі"
+    label_settings: "Установки"
+    structure: "Структура"
+    new_structure: "Створити розділ"
+    user_actions: "Дії"
+    posts: "Блог"
+    new_post: "Додати пост"
+    confirm_delete: "Ви дійсно хочете видалити запис?"
+    prev: "Попередня"
+    next: "Наступна"
+    max_size: "Макс р."
+    keywords: "Ключові слова"
+    edit: "Редагувати"
+    delete: "Видалити"
+    add: "Додати"
+    create: "Створити"
+    cancel: "Скасувати"
+    update: "Оновити"
+    sort: "Сортувати"
+    pictures: "Фотографії"
+    download: "Завантажити"
+    close: "Закрити"
+    
+    menu:
+      structures: "Структура"
+      users: "Користувачі"
+      system_messages: "Системні повідомлення"
+      settings: "Установки"
+      other: "Інші"
+      posts: "Новини"
+      categories: "Категорії"
+      statisticts: "Статистика"
+      videos: "Конкурсне відео"
+      questions: "Питання та відповіді"
+      cocktails: "Shake в банку"
+      tracks: "Музика"
+      wallpapers: "Шпалери"
+      reviews: "голоси"
+    
+    settings:
+      title: "Установки"
+      mailer: "Пошта"
+      route: "Домен"
+      contacts: "Контакти"
+    
+    locale:
+      ru: "російська"
+      en: "англійська"
+      uk: "український"
+    
+    model_filter: 
+      title: "Фільтр даних"
+      filter: "Фільтр"
+      search: "Пошук"
+      clear: "Очистити"
+    
+    position:
+      down: "Опустити вниз"
+      up: "Підняти вгору"
+    
+    buttons:
+      create_structure: "Створити розділ"
+    
+    user:
+      actions: "дії"
+      events:
+        register: "Реєстрація"
+        suspend: "Заморозити"
+        delete: "Видалити"
+        unsuspend: "Розморозити"
+        activate: "Активувати"
+      roles: "Ролі"
+      
+    users:
+      activated_at: "активація"
+      last_login_ip: "ip"
+      email: "email"
+      category: "категорія"
+      name: "Ім'я"
+      
+      sort:
+        _: "-"
+        created_at_desc: "за датою за спаданням"
+        created_at_asc: "за датою за зростанням"
+        name_desc: "за за іменем за спаданням"
+        name_asc: "на ім'я за зростанням"
+    
+    structure:
+      kind:
+        page: "Текстова сторінка"
+        posts: "Блоги"
+        main: "Головна сторінка"
+        promo: "Конкурс"
+        lessons: "Приватні уроки"
+        faq: "Питання та відповіді"
+        shake: "Shake в банку"
+        downloads: "Downloads"
+        redirect: "Redirect"
+        tracks: "Музика"
+        wallpapers: "Шпалери"
+        group: "Група странічок"
+      
+      position:
+        default: "За замовчуванням"
+        menu: "Головне меню"
+        bottom: "Внизу"
+    
+    role:
+      kind:
+        guest: "Гість"
+        default: "Клієнт"
+        moderator: "Модератор"
+        admin: "Aдміністратор"
+        redactor: "Редактор"
+        
+    tags:
+      sort:
+        _: "-"
+        created_at_desc: "за датою за спаданням"
+        created_at_asc: "за датою за зростанням"
+        name_desc: "за назвою за спаданням"
+        name_asc: "за назвою за зростанням"
+    
+    posts:
+      sort:
+        _: "-"
+        created_at_desc: "за датою за спаданням"
+        created_at_asc: "за датою за зростанням"
+        title_desc: "за назвою за спаданням"
+        title_asc: "за назвою за зростанням"
+    
+    sort_columns:
+      _: "-"
+      created_at_desc: "за датою за спаданням"
+      created_at_asc: "за датою за зростанням"
+      title_desc: "за назвою за спаданням"
+      title_asc: "за назвою за зростанням"
+      name_desc: "за назвою за спаданням"
+      name_asc: "за назвою за зростанням"
+      position_desc: "за позицією за спаданням"
+      position_asc: "за позицією за зростанням"
+      sort_order_desc: "по сортуванню за спаданням"
+      sort_order_asc: "по сортуванню за зростанням"
+      
+  flash:
+    manage:      
+      actions:
+        create:
+          success: "Запис успішно створено"
+          failure: "Виникли помилки при збереженні даних"
+        update:
+          success: "Запис успішно оновлено"
+          failure: "Виникли помилки при оновленні даних"
+        destroy:
+          success: "Запис успішно видалено"
+          failure: "Виникли помилки при видаленні даних"
+        
+      users:
+        create:
+          success: "Користувач успішно створений"
+          failure: "Виникли помилки при створенні користувача"
+        update:
+          success: "Дані користувача успішно оновлено"
+      
+      settings:
+        create:
+          success: "Параметри успішно оновлені"
+          failure: "Виникли помилки при збереженні даних"
+      
+      pages:
+        create:
+          success: "Сторінка успішно збережено"
+          failure: "Виникли помилки при збереженні даних"
+        update:
+          success: "Сторінка успішно збережено"
+          failure: "Виникли помилки при збереженні даних"
