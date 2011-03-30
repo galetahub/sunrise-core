@@ -14,7 +14,7 @@ module Sunrise
       
       def button(type, *args, &block)
         options = args.extract_options!
-        url = options[:url] || polymorphic_path([:manage, object_plural])
+        url = options[:url] || [:manage, object_plural]
         
         content_tag(:div, :style => "padding: 20px 0px 10px 20px;", :class => "buts") do
           concat link_to_function content_tag(:span, t('manage.create')), "$(this).parents('form').submit()", :class=>"gr"
