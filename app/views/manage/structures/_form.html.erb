@@ -1,0 +1,28 @@
+<%= manage_form_for @structure do |f| %>
+  <div class="edit-cont">   
+    <div class="inputs-bl">
+      <%= f.input :title, :input_html => { :class => 'name text' } %>
+      <%= f.input :redirect_url %>
+    </div>
+  </div>
+  
+  <%= render :partial => 'manage/headers/form', :object => f %>
+  
+  <div class="edit-cont">   
+    <div class="inputs-bl">
+      <% if @structure.moveable? %>
+        <%= f.input :parent_id, :collection => nested_set_options(Structure) {|i| "#{'–' * i.depth} #{i.title}"}, :include_blank => false %>
+      <% end %>
+      
+      <%= f.input :kind, :collection => StructureType.all, :include_blank => false %>
+      
+      <%= f.input :position, :collection => PositionType.all, :include_blank => false %>
+      
+      <div class="radio-bl">
+        <%= f.input :is_visible %>
+      </div>
+    </div>
+  </div>
+  
+  <%= f.button :submit %>
+<% end %>

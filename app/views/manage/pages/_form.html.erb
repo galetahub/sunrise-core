@@ -1,0 +1,11 @@
+<%= manage_form_for [@structure, @page], :url => manage_structure_page_path(@structure.id) do |f| %>
+  <div class="bot-bg">
+    <div class="inputs-bl">
+      <%= f.input :title, :input_html => { :class => "text name" } %>
+      
+      <%= f.ckeditor :content, :input_html => options_for_ckeditor %>
+    </div>
+  </div>
+  
+  <%= f.button :submit, :url => manage_structures_path %>
+<% end %>

@@ -15,13 +15,6 @@ module Manage::BaseHelper
 		end
 	end
 	
-	def options_for_pagination(options = {})
-	  { :class => "pagination", 
-      :previous_label => image_tag("manage/page_prev_arr.gif", :alt=>t('manage.prev'), :title=>t('manage.prev')),
-      :next_label => image_tag("manage/page_next_arr.gif", :alt=>t('manage.next'), :title=>t('manage.next'))    
-    }.update(options)
-	end
-	
 	def options_for_ckeditor(options = {})
 	  {:width=>700, :height=>400, 
 	   :swf_params=>{:assetable_type=>current_user.class.name, :assetable_id=>current_user.id}

@@ -52,14 +52,11 @@ class Manage::UsersController < Manage::BaseController
   protected
     
     def collection
-      options = { :page => params[:page], :per_page => 20 }
-      options.update @search.filter
-      
-      @users = (@users || end_of_association_chain).includes(:avatar).paginate(options)
+      @users = (@users || end_of_association_chain).merge(@search.scoped).includes(:avatar).page(params[:page])
     end
     
     def make_filter
-      @search = Freeberry::ModelFilter.new(User, :attributes=>[:name, :email])
+      @search = Sunrise::ModelFilter.new(User, :attributes=>[:name, :email])
       @search.update_attributes(params[:search])
     end
     

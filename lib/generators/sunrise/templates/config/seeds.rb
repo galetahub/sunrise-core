@@ -1,15 +1,11 @@
 def insert_user  
-  # Path to words
-  Haddock::Password.diction = Rails.root.join("config", "words")
-  
-  # User
   User.truncate_table
   Role.truncate_table
-  password = Haddock::Password.generate
+  password = Devise.friendly_token
   
   admin = User.new(:name=>'Administrator', :email=>'dev@aimbulance.com',
                    :password=>password, :password_confirmation=>password)
-  #admin.login = 'admin'
+  admin.login = 'admin' if admin.respond_to?(:login)
   admin.roles.build(:role_type => RoleType.admin)
   admin.skip_confirmation!
   admin.save!

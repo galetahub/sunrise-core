@@ -1,0 +1,31 @@
+= SunRise CMS
+
+== Install
+
+  gem 'sunrise'
+
+  rails generate sunrise:install
+  
+Feature for Rails 3.1: copy migrations from all plugins, engins:
+
+  rake railties:install:migrations
+
+Generate devise configurations:
+
+  rails generate devise:install
+
+Generate simple_form configurations:
+  
+  rails generate simple_form:install
+
+Generate attach_file_field assets:
+  
+  rails generate attach_file_field
+
+Migrate database:
+
+  rake db:migrate
+
+Autoload generated models in application.rb:
+
+  config.autoload_paths += %W(#{config.root}/app/models/defaults)

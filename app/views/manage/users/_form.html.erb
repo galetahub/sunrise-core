@@ -1,0 +1,15 @@
+<%= manage_form_for @user do |f| %>
+  <div class="edit-cont">
+    <div class="inputs-bl">
+      <%= f.input :name, :input_html => { :class => 'name text' } %>
+      <%= f.input :email %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.input :role_type_id, :collection => RoleType.all %>
+    </div>
+    
+    <%= f.attach_file_field :avatar, :input_html => { :file_max_size => 1 } %>
+  </div>
+  
+  <%= f.button :submit %>
+<% end %>

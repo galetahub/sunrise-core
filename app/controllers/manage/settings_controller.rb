@@ -8,7 +8,7 @@ class Manage::SettingsController < Manage::BaseController
   # POST /manage/settings
   def create
     respond_to do |format|
-    	if Freeberry::SystemSettings.update_settings(params[:settings])
+    	if Sunrise::SystemSettings.update_settings(params[:settings])
         flash[:notice] = I18n.t('flash.manage.settings.create.success')
         
         format.html { redirect_to manage_settings_path }

@@ -1,0 +1,33 @@
+<div class="bot-bg">
+  <div class="filt-bl">
+    <%= link_to_function t('manage.model_filter.title'), "Manage.toggle_element('block_filter')", :class=>"dark-arr" %>
+    
+    <%= cookie_content_tag(:div, :id=>"block_filter", :class=>"filt") do %>
+      <%= form_for @search, :as => :search, :url=>manage_users_path, :html=>{:method=>:get, :id=>"form_filter"} do |f| %>
+        <%= f.label :email, t('activerecord.attributes.user.email') %>
+        <%= f.text_field :email, :class=>"text" %>
+        
+        <%= f.label :name, t('activerecord.attributes.user.name') %>
+        <%= f.text_field :name, :class=>"text" %>
+        
+        <div class="buts">
+          <%= f.submit t('manage.model_filter.search'), :style=>"display:none;" %>
+          <%= link_to_function content_tag(:span, t('manage.model_filter.search')), "$('#form_filter').submit()", :class=>"gr" %>                
+          <%= link_to t('manage.model_filter.clear'), manage_users_path, :class=>"erase" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="sort">
+  	<label><%= t('manage.sort') %></label>
+    <div class="select-input"><%= link_to_function t("manage.users.sort.#{@search.order_column}_#{@search.order_type}"), "SelectList.toggle(event)", :class=>"corn", :id=>'sort_select' %></div>
+    <div id='sort_select_list' class="select-list" style='display:none;'>
+      <%= link_to_sort(t('manage.users.sort.created_at_desc'),:name=>"created_at", :order_type=>'desc') %>
+      <%= link_to_sort(t('manage.users.sort.created_at_asc'), :name=>"created_at", :order_type=>'asc') %>
+      
+      <%= link_to_sort(t('manage.users.sort.name_desc'), :name=>"name", :order_type=>'desc') %>
+      <%= link_to_sort(t('manage.users.sort.name_asc'), :name=>"name", :order_type=>'asc') %>
+    </div>
+  </div>
+</div>

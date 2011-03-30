@@ -418,14 +418,14 @@ input.text {
 .filt input.text {
 	width: 240px;	
 }
-.select {
+.select-input {
 	background: url(/images/manage/select_bg.gif) no-repeat right top;	
 	overflow: hidden;
 	height: 28px;
 	line-height: 28px;
 	color: #fff;
 }
-.select .corn {
+.select-input .corn {
 	background:url(/images/manage/select_corn.gif) no-repeat left top;
 	color: #fff;
 	text-decoration: none;
@@ -1048,16 +1048,16 @@ input.hidden {
     overflow: hidden;
     padding: 15px 0px;
 }
-.radio-bl .radio-line {
+.radio-bl .boolean {
     display: block;
     padding-bottom: 5px;
 }
-.radio-bl .radio-line input, .radio-bl .radio-line label {
+.radio-bl .boolean input, .radio-bl .boolean label {
     display: inline;    
     margin-right: 3px;
     font-size: 1em;
 }
-.radio-bl .radio-line label {
+.radio-bl .boolean label {
   padding-top:0px;
 }
 .buttons {

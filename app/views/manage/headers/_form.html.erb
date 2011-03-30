@@ -1,0 +1,14 @@
+<div class="edit-white-bl margin-top">
+  <div class="bot-bg">
+    <div class="wh-title"><%= t('manage.keywords') %></div>
+    <div class="elem-bl">
+      <div class="inputs-bl">
+        <%= form.fields_for :header, form.object.header || Header.new do |h| %>
+          <%= h.input :title %>
+          <%= h.input :keywords %>
+          <%= h.input :description, :input_html => {:cols=>70, :rows=>5} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

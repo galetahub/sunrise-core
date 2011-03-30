@@ -1,9 +1,15 @@
+require 'rails/generators'
+require 'rails/generators/migration'
+
 module Sunrise
   module Generators
     class InstallGenerator < Rails::Generators::Base
-      source_root File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
+      include Rails::Generators::Migration
       
       desc "Creates a Sunrise initializer and copy general files to your application."
+      
+      source_root File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
+      class_option :migrations, :type => :boolean, :default => true, :description => "Generate migrations files"
       
       # copy images
       def copy_images
@@ -25,13 +31,7 @@ module Sunrise
         directory "views", "app/views"
       end
       
-      # copy sweepers
-      def copy_sweepers
-        directory "sweepers", "app/sweepers"
-      end
-      
       def copy_configurations
-        copy_file('config/words', 'config/words')
         copy_file('config/seeds.rb', 'db/seeds.rb')
         copy_file('config/sunrise.rb', 'config/initializers/sunrise.rb')
         
@@ -43,6 +43,38 @@ module Sunrise
       
       def copy_helpers
         directory('helpers', 'app/helpers')
+      end
+      
+      # copy models
+      def copy_models
+        directory "models", "app/models"
+      end
+      
+      # Add devise routes
+      def add_routes
+        route "devise_for :users"
+      end
+      
+      # copy migration files
+      def create_migrations
+        if options.migrations
+          [:users, :roles, :structures, :pages, :assets, :headers].each do |item|
+            migration_template "migrate/create_#{item}.rb", File.join('db/migrate', "sunrise_create_#{item}.rb")
+          end
+        end
+      end
+      
+      def self.next_migration_number(dirname)
+        if ActiveRecord::Base.timestamped_migrations
+          current_time.utc.strftime("%Y%m%d%H%M%S")
+        else
+          "%.3d" % (current_migration_number(dirname) + 1)
+        end
+      end
+      
+      def self.current_time
+        @current_time ||= Time.now
+        @current_time += 1.minute
       end
       
       protected
