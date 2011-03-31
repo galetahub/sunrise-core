@@ -4,7 +4,7 @@
     	<div class="row-container">
         <div class="white-row">
           <div class="r-corn">
-            <%= link_to t('manage.menu.users'), manage_users_path, :class=>"dark-text" %>
+            <%= link_to t('manage.plugins.users'), manage_users_path, :class=>"dark-text" %>
             <div class="act-bl">
               <% if can? :create, User, :context => :manage %>
                 <%= link_to t('manage.add'), new_manage_user_path, :class=>"create" %>
