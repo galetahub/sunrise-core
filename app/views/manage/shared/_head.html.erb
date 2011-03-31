@@ -9,6 +9,10 @@
           <li><%= link_to_unless_current_span2 plugin.title, [:manage, plugin.name] %></li>
         <% end %>
       <% end %>
+      
+      <% unless Sunrise::Plugins.active.menu('select').empty? %>
+        <li><%= link_to_function t('manage.plugins.other'), "SelectList.toggle(event)", :class=>"arr", :id=>"menu_select" %></li>
+      <% end %>
     </ul>
   </div>
     
@@ -25,3 +29,13 @@
     </div>
   </div>
 </div>
+
+<% unless Sunrise::Plugins.active.menu('select').empty? %>
+  <div id='menu_select_list' class="select-list" style='display:none;'>
+    <% Sunrise::Plugins.active.menu('select').each do |plugin| %>
+      <% if can? :read, plugin.klass, :context => :manage %>
+        <%= link_to plugin.title, [:manage, plugin.name] %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
