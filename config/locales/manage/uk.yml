@@ -93,7 +93,7 @@ uk:
     download: "Завантажити"
     close: "Закрити"
     
-    menu:
+    plugins:
       structures: "Структура"
       users: "Користувачі"
       system_messages: "Системні повідомлення"

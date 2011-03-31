@@ -93,7 +93,7 @@ ru:
     download: "Скачать"
     close: "Закрыть"
     
-    menu:
+    plugins:
       structures: "Структура"
       users: "Пользователи"
       system_messages: "Системные сообщения"

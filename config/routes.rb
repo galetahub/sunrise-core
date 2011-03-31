@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 		  get :move, :on => :member
 		  
 		  resource :page
-		  resources :posts
 		end
 		
 		resources :assets, :only => [:create, :destroy] do

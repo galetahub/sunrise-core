@@ -93,7 +93,7 @@ en:
     download: "Download"
     close: "Close"
     
-    menu:
+    plugins:
       structures: "Structure"
       users: "Community"
       system_messages: "System messages"

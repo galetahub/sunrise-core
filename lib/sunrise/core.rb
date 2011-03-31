@@ -4,18 +4,14 @@ require 'sunrise/core_ext'
 module Sunrise
   autoload :SystemSettings, 'sunrise/system_settings'
   autoload :ModelFilter, 'sunrise/model_filter'  
+  autoload :Plugins, 'sunrise/plugins'
+  autoload :Plugin, 'sunrise/plugin'
   
   module Models
     autoload :RoleType,      'sunrise/models/role_type'
     autoload :StructureType, 'sunrise/models/structure_type'
     autoload :PositionType,  'sunrise/models/position_type'
-    autoload :User,          'sunrise/models/user'
     autoload :Role,          'sunrise/models/role'
-    autoload :Structure,     'sunrise/models/structure'
-    autoload :Page,          'sunrise/models/page'
-    autoload :Post,          'sunrise/models/post'
-    autoload :Comment,       'sunrise/models/comment'
-    autoload :Asset,         'sunrise/models/asset'
     autoload :Header,        'sunrise/models/header'
   end
   
@@ -56,4 +52,5 @@ module Sunrise
   end
 end
 
-require 'sunrise/rails'
+require 'sunrise/version'
+require 'sunrise/engine'

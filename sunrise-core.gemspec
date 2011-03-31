@@ -9,14 +9,16 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-03-30}
+  s.date = %q{2011-03-31}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
+    "Gemfile.lock",
     "README.rdoc"
   ]
   s.files = [
     "Gemfile",
+    "Gemfile.lock",
     "README.rdoc",
     "Rakefile",
     "app/controllers/manage/assets_controller.rb",
@@ -35,6 +37,10 @@ Gem::Specification.new do |s|
     "app/views/manage/pages/new.html.erb",
     "app/views/manage/settings/_form.html.erb",
     "app/views/manage/settings/index.html.erb",
+    "app/views/manage/shared/_head.html.erb",
+    "app/views/manage/shared/_locale.html.erb",
+    "app/views/manage/shared/_notice.html.erb",
+    "app/views/manage/shared/_panel.html.erb",
     "app/views/manage/structures/_form.html.erb",
     "app/views/manage/structures/_structure.html.erb",
     "app/views/manage/structures/edit.html.erb",
@@ -172,6 +178,7 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/javascripts/datepicker/jquery-ui-i18n.js",
     "lib/generators/sunrise/templates/javascripts/datepicker/jquery.ui.datepicker-ru.js",
     "lib/generators/sunrise/templates/javascripts/datepicker/jquery.ui.datepicker-uk.js",
+    "lib/generators/sunrise/templates/javascripts/jquery-ui-timepicker-addon.js",
     "lib/generators/sunrise/templates/javascripts/jquery.cookie.js",
     "lib/generators/sunrise/templates/javascripts/jquery.fancybox-1.3.4.pack.js",
     "lib/generators/sunrise/templates/javascripts/jquery.tmpl.min.js",
@@ -245,10 +252,6 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/sweepers/user_sweeper.rb",
     "lib/generators/sunrise/templates/views/layouts/application.html.erb",
     "lib/generators/sunrise/templates/views/shared/_notice.html.erb",
-    "lib/generators/sunrise/templates/views/shared/manage/_head.html.erb",
-    "lib/generators/sunrise/templates/views/shared/manage/_locale.html.erb",
-    "lib/generators/sunrise/templates/views/shared/manage/_notice.html.erb",
-    "lib/generators/sunrise/templates/views/shared/manage/_panel.html.erb",
     "lib/sunrise-core.rb",
     "lib/sunrise/controllers/head_options.rb",
     "lib/sunrise/core.rb",
@@ -256,6 +259,8 @@ Gem::Specification.new do |s|
     "lib/sunrise/core_ext/array.rb",
     "lib/sunrise/core_ext/i18n.rb",
     "lib/sunrise/core_ext/string.rb",
+    "lib/sunrise/core_plugins.rb",
+    "lib/sunrise/engine.rb",
     "lib/sunrise/model_filter.rb",
     "lib/sunrise/models/asset.rb",
     "lib/sunrise/models/header.rb",
@@ -266,7 +271,8 @@ Gem::Specification.new do |s|
     "lib/sunrise/models/structure.rb",
     "lib/sunrise/models/structure_type.rb",
     "lib/sunrise/models/user.rb",
-    "lib/sunrise/rails.rb",
+    "lib/sunrise/plugin.rb",
+    "lib/sunrise/plugins.rb",
     "lib/sunrise/system_settings.rb",
     "lib/sunrise/utils/accessible_attributes.rb",
     "lib/sunrise/utils/header.rb",
@@ -275,7 +281,8 @@ Gem::Specification.new do |s|
     "lib/sunrise/utils/transliteration.rb",
     "lib/sunrise/version.rb",
     "lib/sunrise/views/form_builder.rb",
-    "lib/sunrise/views/helpers.rb"
+    "lib/sunrise/views/helpers.rb",
+    "lib/sunrise/views/inputs/date_time_input.rb"
   ]
   s.homepage = %q{https://github.com/galetahub/sunrise-core}
   s.require_paths = ["lib"]

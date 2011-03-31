@@ -23,7 +23,7 @@
   <%= yield(:head) %>
 </head>
 <body>
-  <%= render :partial => "shared/manage/panel" if content_manager? %>
+  <%= render :partial => "manage/shared/panel" if content_manager? %>
   <%= render :partial => 'shared/notice' if flash %>
   
   <div class='content'>
