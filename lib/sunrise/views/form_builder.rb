@@ -10,7 +10,16 @@ module Sunrise
         options[:input_html] ||= {}
         options[:input_html] = { :class => 'text' }.merge(options[:input_html])
         
+        attribute_name = "#{attribute_name}_#{options[:locale]}" unless options[:locale].blank?
+        
         super(attribute_name, options, &block)
+      end
+      
+      def globalize(options={}, &block)
+        locales = options[:locales] || Sunrise.available_locales
+        html = []
+        
+        html.join.html_safe
       end
       
       def button(type, *args, &block)

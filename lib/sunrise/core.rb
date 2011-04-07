@@ -45,6 +45,9 @@ module Sunrise
   mattr_accessor :flash_keys
   @@flash_keys = [ :success, :failure ]
   
+  mattr_accessor :available_locales
+  @@available_locales = []
+  
   # Default way to setup Devise. Run rails generate devise_install to create
   # a fresh initializer with all configuration values.
   def self.setup
