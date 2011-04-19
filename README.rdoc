@@ -1,6 +1,21 @@
 = SunRise CMS
 
 == Install
+  
+  gem 'inherited_resources'
+  gem 'paperclip'
+  gem 'mime-types'
+  gem 'kaminari'
+  gem 'cancan'
+  gem 'cancan_namespace'
+  gem 'devise'
+  gem 'simple_form'
+  gem 'ckeditor', '3.5.2'
+  
+  gem 'enum_field', :git => 'git://github.com/galetahub/enum_field.git'
+  gem 'awesome_nested_set', :git => 'git://github.com/galetahub/awesome_nested_set.git'
+  gem 'salty_slugs', :git => 'git://github.com/galetahub/salty_slugs.git'
+  gem 'attach_file_field', :git => 'git://github.com/galetahub/attach_file_field.git'
 
   gem 'sunrise'
 
@@ -28,4 +43,4 @@ Migrate database:
 
 Autoload generated models in application.rb:
 
-  config.autoload_paths += %W(#{config.root}/app/models/defaults)
+  config.autoload_paths += %W(#{config.root}/app/models/defaults #{config.root}/app/sweepers)

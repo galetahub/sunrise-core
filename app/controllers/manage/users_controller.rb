@@ -68,6 +68,8 @@ class Manage::UsersController < Manage::BaseController
           params[:user].delete(:password)
           params[:user].delete(:password_confirmation)
         end
+        
+        @user.accessible = :all
       end
     end
     

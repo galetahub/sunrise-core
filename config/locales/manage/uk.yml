@@ -97,7 +97,7 @@ uk:
       structures: "Структура"
       users: "Користувачі"
       system_messages: "Системні повідомлення"
-      settings: "Установки"
+      settings: "Налаштування"
       other: "Інші"
       posts: "Новини"
       categories: "Категорії"
@@ -110,7 +110,7 @@ uk:
       reviews: "голоси"
     
     settings:
-      title: "Установки"
+      title: "Налаштування"
       mailer: "Пошта"
       route: "Домен"
       contacts: "Контакти"

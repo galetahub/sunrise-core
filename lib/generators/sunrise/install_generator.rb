@@ -50,9 +50,14 @@ module Sunrise
         directory "models", "app/models"
       end
       
+      def copy_sweepers
+        directory "sweepers", "app/sweepers"
+      end
+      
       # Add devise routes
       def add_routes
         route "devise_for :users"
+        route "resources :pages, :only => [:show]"
       end
       
       # copy migration files

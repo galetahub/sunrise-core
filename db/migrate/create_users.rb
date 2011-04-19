@@ -10,6 +10,7 @@ class FreeberryCreateUsers < ActiveRecord::Migration
       t.trackable
       t.confirmable
       t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :time
+      t.encryptable
       # t.token_authenticatable
 
       t.timestamps

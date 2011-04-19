@@ -6,15 +6,15 @@
       <div class="panel-main-menu">
       	<ul>
       	  <% if can? :read, Structure, :context => :manage %>
-           	<li><%= link_to_unless_current_span2 t('manage.menu.structures'), manage_structures_path %></li>
+           	<li><%= link_to_unless_current_span2 t('manage.plugins.structures'), manage_structures_path %></li>
          	<% end %>
          	
          	<% if can? :read, User, :context => :manage %>
-            <li><%= link_to_unless_current_span2 t('manage.menu.users'), manage_users_path %></li>
+            <li><%= link_to_unless_current_span2 t('manage.plugins.users'), manage_users_path %></li>
           <% end %>
           
           <% if can? :read, :settings, :context => :manage %>
-            <li><%= link_to_unless_current_span2 t('manage.menu.settings'), manage_settings_path %></li>
+            <li><%= link_to_unless_current_span2 t('manage.plugins.settings'), manage_settings_path %></li>
           <% end %>
         </ul>
       </div>

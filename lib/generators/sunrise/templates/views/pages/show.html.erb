@@ -1,0 +1,2 @@
+<h1><%= @structure.title %></h1>
+<%=raw Nokogiri::HTML.fragment(@page.content).to_html %>

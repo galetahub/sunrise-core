@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'mime/types'
+
 module Sunrise
   module Models
     module Asset

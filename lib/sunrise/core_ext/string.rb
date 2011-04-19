@@ -18,7 +18,7 @@ class String
 	end
 	
 	def parameterize(sep = '-')
-	  value = Freeberry::Transliteration.transliterate(self)
+	  value = Sunrise::Utils::Transliteration.transliterate(self)
     ActiveSupport::Inflector.parameterize(value, sep)
   end
 	
