@@ -2,11 +2,10 @@ class Manage::UsersController < Manage::BaseController
   inherit_resources
   defaults :route_prefix => 'manage'
   
+  load_and_authorize_resource  
+  
   before_filter :make_filter, :only=>[:index]
   before_filter :check_params, :only => [:create, :update]
-  before_filter :find_user, :only=>[:update, :activate]
-
-  load_and_authorize_resource  
   
   cache_sweeper :user_sweeper, :only=>[:update, :destroy]
   
