@@ -17,6 +17,9 @@ module Sunrise
     
             before_validation :make_content_type
             before_create :read_dimensions
+            
+            delegate :url, :original_filename, :content_type, :size, :path, :styles, :to => :data
+            alias :filename :original_filename
           end
         end
         
@@ -26,28 +29,9 @@ module Sunrise
       end
       
       module InstanceMethods
-        def url(*args)
-          data.url(*args)
-        end
         
-        def filename
-          data_file_name
-        end
-        
-        def content_type
-          data_content_type
-        end
-        
-        def size
-          data_file_size
-        end
-        
-        def path
-          data.path
-        end
-        
-        def styles
-          data.styles
+        def thumb_url
+          url(:thumb)
         end
         
         def format_created_at
@@ -74,12 +58,22 @@ module Sunrise
           super
         end
         
+        def as_json(options = nil)
+          options = {
+            :only => [:id, :guid, :assetable_id, :assetable_type, :user_id], 
+            :root => 'asset', 
+            :methods => [:filename, :url, :size, :content_type, :thumb_url]
+          }.merge(options || {})
+          
+          super
+        end
+        
         def has_dimensions?
           respond_to?(:width) && respond_to?(:height)
         end
         
         def image?
-          Sunrise::Utils::IMAGE_TYPES.include?(data_content_type)
+          Sunrise::Utils::IMAGE_TYPES.include?(content_type)
         end
         
         def geometry

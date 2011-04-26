@@ -9,11 +9,10 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-03-31}
+  s.date = %q{2011-04-26}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
-    "Gemfile.lock",
     "README.rdoc"
   ]
   s.files = [
@@ -27,6 +26,7 @@ Gem::Specification.new do |s|
     "app/controllers/manage/settings_controller.rb",
     "app/controllers/manage/structures_controller.rb",
     "app/controllers/manage/users_controller.rb",
+    "app/controllers/pages_controller.rb",
     "app/views/layouts/manage.html.erb",
     "app/views/manage/assets/_collection.html.erb",
     "app/views/manage/assets/_picture.html.erb",
@@ -209,6 +209,7 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/models/defaults/structure.rb",
     "lib/generators/sunrise/templates/models/defaults/structure_type.rb",
     "lib/generators/sunrise/templates/models/defaults/user.rb",
+    "lib/generators/sunrise/templates/stylesheets/application.css",
     "lib/generators/sunrise/templates/stylesheets/fancybox/images/blank.gif",
     "lib/generators/sunrise/templates/stylesheets/fancybox/images/fancy_close.png",
     "lib/generators/sunrise/templates/stylesheets/fancybox/images/fancy_loading.png",
@@ -251,6 +252,7 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/sweepers/structure_sweeper.rb",
     "lib/generators/sunrise/templates/sweepers/user_sweeper.rb",
     "lib/generators/sunrise/templates/views/layouts/application.html.erb",
+    "lib/generators/sunrise/templates/views/pages/show.html.erb",
     "lib/generators/sunrise/templates/views/shared/_notice.html.erb",
     "lib/sunrise-core.rb",
     "lib/sunrise/controllers/head_options.rb",
@@ -293,38 +295,38 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, ["~> 3.0.4"])
+      s.add_runtime_dependency(%q<rails>, ["~> 3.0.7"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.4"])
-      s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.1"])
-      s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.8"])
+      s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
+      s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_runtime_dependency(%q<mime-types>, ["~> 1.16"])
       s.add_runtime_dependency(%q<kaminari>, ["~> 0.10.4"])
-      s.add_runtime_dependency(%q<cancan>, ["~> 1.6.3"])
-      s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.1"])
-      s.add_runtime_dependency(%q<devise>, ["~> 1.2.1"])
+      s.add_runtime_dependency(%q<cancan>, ["~> 1.6.4"])
+      s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
+      s.add_runtime_dependency(%q<devise>, ["~> 1.3.0"])
       s.add_runtime_dependency(%q<simple_form>, ["~> 1.3.1"])
     else
-      s.add_dependency(%q<rails>, ["~> 3.0.4"])
+      s.add_dependency(%q<rails>, ["~> 3.0.7"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
-      s.add_dependency(%q<inherited_resources>, ["~> 1.2.1"])
-      s.add_dependency(%q<paperclip>, ["~> 2.3.8"])
+      s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
+      s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_dependency(%q<mime-types>, ["~> 1.16"])
       s.add_dependency(%q<kaminari>, ["~> 0.10.4"])
-      s.add_dependency(%q<cancan>, ["~> 1.6.3"])
-      s.add_dependency(%q<cancan_namespace>, ["~> 0.1.1"])
-      s.add_dependency(%q<devise>, ["~> 1.2.1"])
+      s.add_dependency(%q<cancan>, ["~> 1.6.4"])
+      s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
+      s.add_dependency(%q<devise>, ["~> 1.3.0"])
       s.add_dependency(%q<simple_form>, ["~> 1.3.1"])
     end
   else
-    s.add_dependency(%q<rails>, ["~> 3.0.4"])
+    s.add_dependency(%q<rails>, ["~> 3.0.7"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
-    s.add_dependency(%q<inherited_resources>, ["~> 1.2.1"])
-    s.add_dependency(%q<paperclip>, ["~> 2.3.8"])
+    s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
+    s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
     s.add_dependency(%q<mime-types>, ["~> 1.16"])
     s.add_dependency(%q<kaminari>, ["~> 0.10.4"])
-    s.add_dependency(%q<cancan>, ["~> 1.6.3"])
-    s.add_dependency(%q<cancan_namespace>, ["~> 0.1.1"])
-    s.add_dependency(%q<devise>, ["~> 1.2.1"])
+    s.add_dependency(%q<cancan>, ["~> 1.6.4"])
+    s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
+    s.add_dependency(%q<devise>, ["~> 1.3.0"])
     s.add_dependency(%q<simple_form>, ["~> 1.3.1"])
   end
 end
