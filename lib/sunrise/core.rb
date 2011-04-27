@@ -48,6 +48,9 @@ module Sunrise
   mattr_accessor :available_locales
   @@available_locales = []
   
+  mattr_accessor :title_spliter
+  @@title_spliter = ' – '
+  
   # Default way to setup Devise. Run rails generate devise_install to create
   # a fresh initializer with all configuration values.
   def self.setup
@@ -56,4 +59,5 @@ module Sunrise
 end
 
 require 'sunrise/version'
+require 'sunrise/core_plugins'
 require 'sunrise/engine'

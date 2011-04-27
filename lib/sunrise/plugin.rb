@@ -1,11 +1,12 @@
 module Sunrise
   class Plugin
-    attr_accessor :name, :model, :menu, :version, :klass
+    attr_accessor :name, :model, :menu, :version, :klass, :klass_name
     
     def initialize(name)
       @name = name.to_s.downcase
       @menu = false
       @klass = nil
+      @klass_name = nil
       
       Sunrise::Plugins.registered << self
     end
@@ -15,7 +16,11 @@ module Sunrise
     end
     
     def klass
-      @klass ||= @name.singularize.camelize.constantize
+      @klass ||= klass_name.constantize
+    end
+    
+    def klass_name
+      @klass_name ||= @name.singularize.camelize
     end
     
     def title
@@ -28,7 +33,9 @@ module Sunrise
       yield plugin
 
       raise "A plugin MUST have a name!: #{plugin.inspect}" if plugin.name.blank?
-
+      
+      plugin.version ||= Sunrise::VERSION.dup
+      
       if plugin.model
         model_path = (plugin.model == true ? "sunrise/models/#{plugin.name}" : plugin.model)
         Sunrise::Models.send(:autoload, plugin.module_name, model_path)

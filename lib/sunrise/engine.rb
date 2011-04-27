@@ -36,8 +36,6 @@ module Sunrise
     end
     
     config.after_initialize do
-      require 'sunrise/core_plugins'
-      
       ActionController::Base.send :include, Sunrise::Controllers::HeadOptions
       ActionView::Base.send :include, Sunrise::Views::Helpers
       
