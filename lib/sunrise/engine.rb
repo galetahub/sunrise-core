@@ -15,6 +15,14 @@ module Sunrise
         ActiveRecord::Base.send :include, Sunrise::Utils::Mysql
         ActiveRecord::Base.send :include, Sunrise::Utils::AccessibleAttributes
       end
+      
+      ActiveSupport.on_load :action_controller do
+        ActionController::Base.send :include, Sunrise::Controllers::HeadOptions
+      end
+      
+      ActiveSupport.on_load :action_view do
+        ActionView::Base.send :include, Sunrise::Views::Helpers
+      end
     end
     
     # Wrap errors in ul->li list and skip labels.
@@ -36,9 +44,6 @@ module Sunrise
     end
     
     config.after_initialize do
-      ActionController::Base.send :include, Sunrise::Controllers::HeadOptions
-      ActionView::Base.send :include, Sunrise::Views::Helpers
-      
       Paperclip.interpolates('basename') do |attachment, style|
         filename = attachment.original_filename.gsub(/#{File.extname(attachment.original_filename)}$/, "")
         Sunrise::Utils.parameterize_filename( filename )

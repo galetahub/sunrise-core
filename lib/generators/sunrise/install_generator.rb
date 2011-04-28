@@ -54,6 +54,11 @@ module Sunrise
         directory "sweepers", "app/sweepers"
       end
       
+      def download_rails_js
+        say_status("fetching rails.js", "", :green)
+        get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+      end
+      
       # Add devise routes
       def add_routes
         route "devise_for :users"
