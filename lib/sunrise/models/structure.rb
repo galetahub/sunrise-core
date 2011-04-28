@@ -26,6 +26,10 @@ module Sunrise
             scope :with_position, proc {|position_type| where(:position => position_type.id) }
           end
         end
+        
+        def find_by_permalink(value)
+          value.to_s.is_int? ? find(value) : where(:slug => value.to_s).first
+        end
       end
       
       module InstanceMethods
