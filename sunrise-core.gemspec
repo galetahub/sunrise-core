@@ -9,15 +9,16 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-04-26}
+  s.date = %q{2011-04-28}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
-    "README.rdoc"
-  ]
-  s.files = [
     "Gemfile",
     "Gemfile.lock",
+    "README.rdoc",
+    "Rakefile"
+  ]
+  s.files = [
     "README.rdoc",
     "Rakefile",
     "app/controllers/manage/assets_controller.rb",
@@ -184,7 +185,6 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/javascripts/jquery.tmpl.min.js",
     "lib/generators/sunrise/templates/javascripts/manage.js",
     "lib/generators/sunrise/templates/javascripts/preloader.js",
-    "lib/generators/sunrise/templates/javascripts/rails.js",
     "lib/generators/sunrise/templates/javascripts/swfupload/fileprogress.js",
     "lib/generators/sunrise/templates/javascripts/swfupload/handlers.js",
     "lib/generators/sunrise/templates/javascripts/swfupload/swfupload.js",
