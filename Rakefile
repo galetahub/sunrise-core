@@ -35,7 +35,7 @@ begin
     s.homepage = "https://github.com/galetahub/sunrise-core"
     s.authors = ["Igor Galeta", "Pavlo Galeta"]
     s.files =  FileList["[A-Z]*", "{app,config,lib}/**/*"] - %w(Gemfile Gemfile.lock)
-    s.extra_rdoc_files = FileList["[A-Z]*"]
+    #s.extra_rdoc_files = FileList["[A-Z]*"]
   end
   
   Jeweler::GemcutterTasks.new
