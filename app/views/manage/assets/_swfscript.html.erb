@@ -4,7 +4,7 @@
 	  $(document).ready(function(){
 	    new SWFUpload({
 				// Backend settings
-				upload_url: "<%= control_assets_path_with_session_information(klass, {:collection=>1}) %>",
+				upload_url: "<%= manage_assets_path_with_session_information(klass, {:collection=>1}) %>",
 				post_params: {"assetable_type" : "<%= model.class.to_s %>", "assetable_id" : "<%= model.id %>"},
 				file_post_name: "data_file",
 

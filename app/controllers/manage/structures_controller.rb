@@ -2,7 +2,8 @@ class Manage::StructuresController < Manage::BaseController
   inherit_resources
   defaults :route_prefix => 'manage'
   
-  before_filter :find_root, :only=>[:index]  
+  before_filter :find_root, :only=>[:index]
+  before_filter :find_structure, :only => [:edit, :update, :destroy, :move]  
   
   load_and_authorize_resource
     
@@ -22,7 +23,6 @@ class Manage::StructuresController < Manage::BaseController
   
   # POST /manage/structures/1/move
   def move
-    @structure = Structure.find(params[:id])
     @structure.move_by_direction(params[:direction])
     
     respond_with(@structure, :location => manage_structures_path)
@@ -33,6 +33,10 @@ class Manage::StructuresController < Manage::BaseController
     def find_root
       @structure ||= Structure.with_kind(StructureType.main).with_depth(0).find(:first)
       @structure
+    end
+    
+    def find_structure
+      @structure = Structure.find_by_permalink(params[:id])
     end
     
     def collection

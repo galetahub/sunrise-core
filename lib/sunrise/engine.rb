@@ -15,32 +15,22 @@ module Sunrise
         ActiveRecord::Base.send :include, Sunrise::Utils::Mysql
         ActiveRecord::Base.send :include, Sunrise::Utils::AccessibleAttributes
       end
+      
+      ActiveSupport.on_load :action_controller do
+        ActionController::Base.send :include, Sunrise::Controllers::HeadOptions
+      end
+      
+      ActiveSupport.on_load :action_view do
+        ActionView::Base.send :include, Sunrise::Views::Helpers
+      end
     end
     
     # Wrap errors in ul->li list and skip labels.
     config.to_prepare do
-      ActionView::Base.field_error_proc = Proc.new do |html_tag, instance| 
-        if html_tag =~ /<(input|textarea|select)/
-          errors = instance.error_message.kind_of?(Array) ? instance.error_message : [instance.error_message]
-          errors.collect! { |error| "<li>#{error}</li>" } 
-          message = "<ul class='error_box error_box_narrow'>#{errors.join}</ul>".html_safe
-          html_tag += message
-        end
-        
-        if html_tag =~ /<label/
-          html_tag
-        else
-          "<div class=\"field_with_errors\">#{html_tag}</div>".html_safe
-        end
-      end
+      ActionView::Base.field_error_proc = Sunrise.field_error_proc
     end
     
     config.after_initialize do
-      require 'sunrise/core_plugins'
-      
-      ActionController::Base.send :include, Sunrise::Controllers::HeadOptions
-      ActionView::Base.send :include, Sunrise::Views::Helpers
-      
       Paperclip.interpolates('basename') do |attachment, style|
         filename = attachment.original_filename.gsub(/#{File.extname(attachment.original_filename)}$/, "")
         Sunrise::Utils.parameterize_filename( filename )

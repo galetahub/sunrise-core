@@ -23,15 +23,15 @@ module Sunrise
       end
       
       def render_title
-        h([@page_title, I18n.t("page.title")].compact.join(' – '))
+        [@page_title, I18n.t("page.title")].compact.join(Sunrise.title_spliter)
       end
       
       def render_keywords
-        h([@page_keywords, I18n.t("page.meta_keywords")].compact.join(' '))
+        [@page_keywords, I18n.t("page.meta_keywords")].compact.join(' ')
       end
       
       def render_description
-        h([@page_description, I18n.t("page.meta_description")].compact.join(', '))
+        [@page_description, I18n.t("page.meta_description")].compact.join(', ')
       end
 
       def anchor_to(name, options={})

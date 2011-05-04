@@ -14,6 +14,8 @@ module Sunrise
             has_one :avatar, :as => :assetable, :dependent => :destroy, :autosave => true
             
             scope :with_role, lambda {|role| joins(:roles).where(["`roles`.role_type = ?", role.id]) }
+            scope :defaults, with_role(::RoleType.default)
+            scope :moderators, with_role(::RoleType.moderator)
             scope :admins, with_role(::RoleType.admin)
             
             before_validation :generate_login, :if => :has_login?
@@ -23,8 +25,12 @@ module Sunrise
       end
       
       module InstanceMethods
-        def manager?
-	        has_role?(:manager)
+        def default?
+          has_role?(:default)
+        end
+        
+        def moderator?
+	        has_role?(:moderator)
 	      end
 	
 	      def admin?
