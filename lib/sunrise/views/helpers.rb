@@ -23,7 +23,7 @@ module Sunrise
       end
       
       def render_title
-        [@page_title, I18n.t("page.title")].compact.join(Sunrise.title_spliter)
+        @page_title || I18n.t("page.title")
       end
       
       def render_keywords
