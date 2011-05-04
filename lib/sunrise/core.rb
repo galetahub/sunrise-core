@@ -30,6 +30,7 @@ module Sunrise
     autoload :Settingslogic, 'sunrise/utils/settingslogic'
     autoload :Transliteration, 'sunrise/utils/transliteration'
     autoload :AccessibleAttributes, 'sunrise/utils/accessible_attributes'
+    autoload :I18nBackend, 'sunrise/utils/i18n_backend'
     
     IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/tiff', 'image/x-png']
     

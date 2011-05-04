@@ -9,7 +9,7 @@ module Sunrise
         
       config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), "../../config", 'locales', '**', '*.{rb,yml}').to_s]
       
-      I18n::Backend::Simple.send(:include, ::I18n::Backend::Pluralization)
+      I18n.backend = Sunrise::Utils::I18nBackend.new
       
       ActiveSupport.on_load :active_record do
         ActiveRecord::Base.send :include, Sunrise::Utils::Mysql
