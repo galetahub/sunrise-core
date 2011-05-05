@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-04-29}
+  s.date = %q{2011-05-05}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -275,6 +275,7 @@ Gem::Specification.new do |s|
     "lib/sunrise/system_settings.rb",
     "lib/sunrise/utils/accessible_attributes.rb",
     "lib/sunrise/utils/header.rb",
+    "lib/sunrise/utils/i18n_backend.rb",
     "lib/sunrise/utils/mysql.rb",
     "lib/sunrise/utils/settingslogic.rb",
     "lib/sunrise/utils/transliteration.rb",
@@ -285,10 +286,11 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{https://github.com/galetahub/sunrise-core}
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.rubygems_version = %q{1.3.7}
   s.summary = %q{Rails CMS}
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
@@ -297,7 +299,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
       s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_runtime_dependency(%q<mime-types>, ["~> 1.16"])
-      s.add_runtime_dependency(%q<kaminari>, ["~> 0.10.4"])
+      s.add_runtime_dependency(%q<kaminari>, ["~> 0.12.4"])
       s.add_runtime_dependency(%q<cancan>, ["~> 1.6.4"])
       s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.3.0"])
@@ -308,7 +310,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
       s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_dependency(%q<mime-types>, ["~> 1.16"])
-      s.add_dependency(%q<kaminari>, ["~> 0.10.4"])
+      s.add_dependency(%q<kaminari>, ["~> 0.12.4"])
       s.add_dependency(%q<cancan>, ["~> 1.6.4"])
       s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
       s.add_dependency(%q<devise>, ["~> 1.3.0"])
@@ -320,7 +322,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
     s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
     s.add_dependency(%q<mime-types>, ["~> 1.16"])
-    s.add_dependency(%q<kaminari>, ["~> 0.10.4"])
+    s.add_dependency(%q<kaminari>, ["~> 0.12.4"])
     s.add_dependency(%q<cancan>, ["~> 1.6.4"])
     s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
     s.add_dependency(%q<devise>, ["~> 1.3.0"])
