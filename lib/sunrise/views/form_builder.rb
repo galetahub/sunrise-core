@@ -25,9 +25,10 @@ module Sunrise
       def button(type, *args, &block)
         options = args.extract_options!
         url = options[:url] || [:manage, object_plural]
+        title = object.new_record? ? I18n.t('manage.create') : I18n.t('manage.update')
         
         content_tag(:div, :style => "padding: 20px 0px 10px 20px;", :class => "buts") do
-          concat link_to_function content_tag(:span, I18n.t('manage.create')), "$(this).parents('form').submit()", :class=>"gr"
+          concat link_to_function content_tag(:span, title), "$(this).parents('form').submit()", :class=>"gr"
           concat link_to I18n.t('manage.cancel'), url, :class=>"erase"
           concat super(type, {:style => "display:none"}, &block)
         end
