@@ -27,11 +27,11 @@ module Sunrise
       end
       
       def render_keywords
-        @page_keywords || I18n.t("page.meta_keywords")
+        @page_keywords || I18n.t("page.keywords")
       end
       
       def render_description
-        @page_description || I18n.t("page.meta_description")
+        @page_description || I18n.t("page.description")
       end
 
       def anchor_to(name, options={})

@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sunrise-core}
-  s.version = "0.0.1"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Igor Galeta}, %q{Pavlo Galeta}]
-  s.date = %q{2011-05-05}
+  s.authors = ["Igor Galeta", "Pavlo Galeta"]
+  s.date = %q{2011-05-17}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -285,8 +285,8 @@ Gem::Specification.new do |s|
     "lib/sunrise/views/inputs/date_time_input.rb"
   ]
   s.homepage = %q{https://github.com/galetahub/sunrise-core}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.0}
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Rails CMS}
 
   if s.respond_to? :specification_version then
