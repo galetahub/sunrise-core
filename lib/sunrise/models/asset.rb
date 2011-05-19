@@ -91,7 +91,7 @@ module Sunrise
           end
           
           def make_content_type
-            if data_content_type.blank? || data_content_type == "application/octet-stream"
+            if filename && (data_content_type.blank? || data_content_type == "application/octet-stream")
               content_types = MIME::Types.type_for(filename)
               self.data_content_type = content_types.first.to_s unless content_types.empty?
             end
