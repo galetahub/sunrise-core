@@ -464,6 +464,17 @@ input.text {
 	display: block;
 	line-height: 37px;
 }
+.buts button.gr {
+	display: block;
+	float: left;
+	color: #fff;
+	text-decoration: none;
+	line-height: 37px;
+	font-size: 1.1em;
+}
+.controls {
+  padding: 20px 0px 10px 20px;
+}
 .sort {
 	display: block;
 	overflow: hidden;
