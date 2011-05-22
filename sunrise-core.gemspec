@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sunrise-core}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Igor Galeta}, %q{Pavlo Galeta}]
-  s.date = %q{2011-05-18}
+  s.authors = ["Igor Galeta", "Pavlo Galeta"]
+  s.date = %q{2011-05-22}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -26,9 +26,9 @@ Gem::Specification.new do |s|
     "app/controllers/manage/users_controller.rb",
     "app/controllers/pages_controller.rb",
     "app/views/layouts/manage.html.erb",
-    "app/views/manage/assets/_collection.html.erb",
-    "app/views/manage/assets/_picture.html.erb",
-    "app/views/manage/assets/_swfscript.html.erb",
+    "app/views/manage/fileupload/_asset.html.erb",
+    "app/views/manage/fileupload/_container.html.erb",
+    "app/views/manage/fileupload/_tmpl.html.erb",
     "app/views/manage/headers/_form.html.erb",
     "app/views/manage/pages/_form.html.erb",
     "app/views/manage/pages/edit.html.erb",
@@ -180,13 +180,9 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/javascripts/jquery.cookie.js",
     "lib/generators/sunrise/templates/javascripts/jquery.fancybox-1.3.4.pack.js",
     "lib/generators/sunrise/templates/javascripts/jquery.tmpl.min.js",
+    "lib/generators/sunrise/templates/javascripts/manage-fileuploader.js",
     "lib/generators/sunrise/templates/javascripts/manage.js",
     "lib/generators/sunrise/templates/javascripts/preloader.js",
-    "lib/generators/sunrise/templates/javascripts/swfupload/fileprogress.js",
-    "lib/generators/sunrise/templates/javascripts/swfupload/handlers.js",
-    "lib/generators/sunrise/templates/javascripts/swfupload/swfupload.js",
-    "lib/generators/sunrise/templates/javascripts/swfupload/swfupload.queue.js",
-    "lib/generators/sunrise/templates/javascripts/swfupload/swfupload.swf",
     "lib/generators/sunrise/templates/migrate/create_assets.rb",
     "lib/generators/sunrise/templates/migrate/create_headers.rb",
     "lib/generators/sunrise/templates/migrate/create_pages.rb",
@@ -244,7 +240,7 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/stylesheets/smoothness/images/ui-icons_454545_256x240.png",
     "lib/generators/sunrise/templates/stylesheets/smoothness/images/ui-icons_888888_256x240.png",
     "lib/generators/sunrise/templates/stylesheets/smoothness/images/ui-icons_cd0a0a_256x240.png",
-    "lib/generators/sunrise/templates/stylesheets/smoothness/jquery-ui-1.8.6.custom.css",
+    "lib/generators/sunrise/templates/stylesheets/smoothness/jquery-ui-1.8.13.custom.css",
     "lib/generators/sunrise/templates/sweepers/page_sweeper.rb",
     "lib/generators/sunrise/templates/sweepers/structure_sweeper.rb",
     "lib/generators/sunrise/templates/sweepers/user_sweeper.rb",
@@ -285,8 +281,8 @@ Gem::Specification.new do |s|
     "lib/sunrise/views/inputs/date_time_input.rb"
   ]
   s.homepage = %q{https://github.com/galetahub/sunrise-core}
-  s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.2}
+  s.require_paths = ["lib"]
+  s.rubygems_version = %q{1.6.2}
   s.summary = %q{Rails CMS}
 
   if s.respond_to? :specification_version then
@@ -299,10 +295,11 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_runtime_dependency(%q<mime-types>, ["~> 1.16"])
       s.add_runtime_dependency(%q<kaminari>, ["~> 0.12.4"])
-      s.add_runtime_dependency(%q<cancan>, ["~> 1.6.4"])
+      s.add_runtime_dependency(%q<cancan>, ["~> 1.6.5"])
       s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
-      s.add_runtime_dependency(%q<devise>, ["~> 1.3.0"])
-      s.add_runtime_dependency(%q<simple_form>, ["~> 1.3.1"])
+      s.add_runtime_dependency(%q<devise>, ["~> 1.3.4"])
+      s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.0"])
+      s.add_runtime_dependency(%q<sunrise-file-upload>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["~> 3.0.7"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
@@ -310,10 +307,11 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
       s.add_dependency(%q<mime-types>, ["~> 1.16"])
       s.add_dependency(%q<kaminari>, ["~> 0.12.4"])
-      s.add_dependency(%q<cancan>, ["~> 1.6.4"])
+      s.add_dependency(%q<cancan>, ["~> 1.6.5"])
       s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
-      s.add_dependency(%q<devise>, ["~> 1.3.0"])
-      s.add_dependency(%q<simple_form>, ["~> 1.3.1"])
+      s.add_dependency(%q<devise>, ["~> 1.3.4"])
+      s.add_dependency(%q<simple_form>, ["~> 1.4.0"])
+      s.add_dependency(%q<sunrise-file-upload>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, ["~> 3.0.7"])
@@ -322,10 +320,11 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
     s.add_dependency(%q<mime-types>, ["~> 1.16"])
     s.add_dependency(%q<kaminari>, ["~> 0.12.4"])
-    s.add_dependency(%q<cancan>, ["~> 1.6.4"])
+    s.add_dependency(%q<cancan>, ["~> 1.6.5"])
     s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
-    s.add_dependency(%q<devise>, ["~> 1.3.0"])
-    s.add_dependency(%q<simple_form>, ["~> 1.3.1"])
+    s.add_dependency(%q<devise>, ["~> 1.3.4"])
+    s.add_dependency(%q<simple_form>, ["~> 1.4.0"])
+    s.add_dependency(%q<sunrise-file-upload>, [">= 0"])
   end
 end
 
