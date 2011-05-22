@@ -224,6 +224,7 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/stylesheets/fancybox/images/fancybox-y.png",
     "lib/generators/sunrise/templates/stylesheets/fancybox/images/fancybox.png",
     "lib/generators/sunrise/templates/stylesheets/fancybox/jquery.fancybox-1.3.4.css",
+    "lib/generators/sunrise/templates/stylesheets/manage/buttons.css",
     "lib/generators/sunrise/templates/stylesheets/manage/ie.css",
     "lib/generators/sunrise/templates/stylesheets/manage/main.css",
     "lib/generators/sunrise/templates/stylesheets/manage/panel.css",
