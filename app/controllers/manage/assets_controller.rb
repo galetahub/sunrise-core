@@ -31,7 +31,7 @@ class Manage::AssetsController < Manage::BaseController
   end
   
   def sort
-    params[:picture].each_with_index do |id, index|
+    params[:asset].each_with_index do |id, index|
       @klass.move_to(index, id)
     end
     
@@ -64,7 +64,7 @@ class Manage::AssetsController < Manage::BaseController
       @klass = params[:klass].blank? ? Asset : params[:klass].classify.constantize
       
       if params[:collection].blank?
-        @asset = @klass.find(:first, :conditions=>[c_names.join(' AND ')] + c_values)
+        @asset = @klass.where([c_names.join(' AND ')] + c_values).first
       end
     end
 end

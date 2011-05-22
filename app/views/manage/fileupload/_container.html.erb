@@ -3,22 +3,23 @@
     <div class="bg-bl">
       <div class="gr-title"><%= label %></div>
       <div class="fileupload-list ill-bl galery">
-        <%= render :partial => 'manage/fileupload/asset', :collection => value %>
+        <%= render :partial => 'manage/fileupload/asset', :collection => assets %>
       </div>
       <div class="file-types">
-        <span class="fileupload-button"><button type="button" class="cupid-green">Оберіть файл</button></span>
-        <div class="type-info"><span><%= file_title %>. Макс р.:</span><strong><%= file_max_size %> MB</strong></div>
+        <span class="fileupload-button">
+          <button type="button" class="cupid-green"><%= t('manage.fileupload.button') %></button>
+        </span>
+        <div class="type-info">
+          <span><%= file_title %>. <%= t('manage.fileupload.max_size') %>:</span><strong><%= file_max_size %> MB</strong>
+        </div>
       </div>
     </div>
   </div>
 <% end %>
 
-<%= javascript_tag("new qq.FileUploaderInput(#{script_options});") %>
-
-<script id="fileupload_tmpl" type="text/x-jquery-tmpl">
-<div class="asset ill" id="${id}">
-  <a href="/manage/assets/56" class="del" data-confirm="Вы действительно хотите удалить запись?" data-method="delete" data-remote="true" rel="nofollow" class="fileupload-cancel"><img alt="Удалить" src="/images/manage/empty.gif?1304599738" title="Удалить"></a>
-
-  <a href="${preview_url}" class="fancybox fileupload-file"><img src="${thumb_url}" title="${filename}"></a>
-</div>
-</script>
+<%= javascript_tag :language => "Javascript" do -%>
+  $(document).ready(function(){
+    new qq.FileUploaderInput(<%=raw script_options %>);
+    Manage.init_assets('<%= element_id %>', '<%= sort_manage_assets_path(:klass=>asset_klass) %>', <%= multiple ? 'true' : 'false' %>);
+  });
+<% end -%>

@@ -11,6 +11,7 @@ ru:
         city_name: "Город"
         about: "О себе"
         remember_me: "Запомнить меня"
+        role_type_id: "Тип пользователя"
       
       structure:
         title: "Название"
@@ -213,6 +214,10 @@ ru:
       position_asc: "за позицией по возрастанию"
       sort_order_desc: "по сортировке по убыванию"
       sort_order_asc: "по сортировке по возрастанию"
+    
+    fileupload:
+      button: "Выберите файл"
+      max_size: "Макс. р."
       
   flash:
     manage:      

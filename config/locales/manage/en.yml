@@ -11,6 +11,7 @@ en:
         city_name: "City"
         about: "About"
         remember_me: "Remember me"
+        role_type_id: "Role type"
       
       structure:
         title: "Name"
@@ -213,6 +214,10 @@ en:
       position_asc: "for the position of the ascending"
       sort_order_desc: "to sort in descending order"
       sort_order_asc: "to sort in ascending order"
+    
+    fileupload:
+      button: "Select file"
+      max_size: "Max size"
       
   flash:
     manage:      

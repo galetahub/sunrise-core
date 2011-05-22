@@ -1,3 +1,5 @@
+<% javascript "fileupload/fileuploader.js", "manage-fileuploader.js" %>
+
 <%= manage_form_for @user do |f| %>
   <div class="edit-cont">
     <div class="inputs-bl">
@@ -8,7 +10,9 @@
       <%= f.input :role_type_id, :collection => RoleType.all %>
     </div>
     
-    <%= f.attach_file_field :avatar, :input_html => { :file_max_size => 1 } %>
+    <%= f.attach_file_field :avatar, :file_max_size => 1 %>
+    
+    <%= f.hidden_field :fileupload_guid if f.object.new_record? %>
   </div>
   
   <%= f.button :submit %>

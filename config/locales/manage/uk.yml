@@ -11,6 +11,7 @@ uk:
         city_name: "Місто"
         about: "Про себе"
         remember_me: "Запам'ятати мене"
+        role_type_id: "Тип користувача"
       
       structure:
         title: "Назва"
@@ -213,6 +214,10 @@ uk:
       position_asc: "за позицією за зростанням"
       sort_order_desc: "по сортуванню за спаданням"
       sort_order_asc: "по сортуванню за зростанням"
+    
+    fileupload:
+      button: "Оберіть файл"
+      max_size: "Макс. р."
       
   flash:
     manage:      

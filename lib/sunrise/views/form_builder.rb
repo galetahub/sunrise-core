@@ -72,8 +72,10 @@ module Sunrise
           :label => (label || attribute_name.to_s.humanize),
           :object => object,
           :attribute_name => attribute_name,
-          :value => value,
-          :script_options => script_options.inspect.gsub('=>', ':')
+          :assets => (value.new_record? ? [] : [value].flatten),
+          :script_options => script_options.inspect.gsub('=>', ':'),
+          :multiple => script_options['multiple'],
+          :asset_klass => params[:klass]
         }
         
         template.render(:partial => "manage/fileupload/container", :locals => locals)
