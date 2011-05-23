@@ -59,18 +59,38 @@ module Sunrise
         get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
       end
       
-      # Add devise routes
-      def add_routes
-        route "devise_for :users"
-        route "resources :pages, :only => [:show]"
-      end
-      
       # copy migration files
       def create_migrations
         if options.migrations
           [:users, :roles, :structures, :pages, :assets, :headers].each do |item|
             migration_template "migrate/create_#{item}.rb", File.join('db/migrate', "sunrise_create_#{item}.rb")
           end
+        end
+      end
+      
+      def dependent_generators
+        say_status("invoke dependent generators", "", :green)
+        
+        generate("simple_form:install")
+        generate("sunrise:file_upload:install")
+        generate("devise:install")
+      end
+      
+      # Add devise routes
+      def add_routes
+        route "devise_for :users"
+        route "resources :pages, :only => [:show]"
+        route 'root :to => "welcome#index"'
+      end
+      
+      def autoload_paths
+        log :autoload_paths, "models/defaults and app/sweepers"
+        sentinel = /\.autoload_paths\s+\+=\s+\%W\(\#\{config\.root\}\/extras\)\s*$/
+
+        code = 'config.autoload_paths += %W(#{config.root}/app/models/defaults #{config.root}/app/sweepers)'
+          
+        in_root do
+          inject_into_file 'config/application.rb', "    #{code}\n", { :after => sentinel, :verbose => false }
         end
       end
       

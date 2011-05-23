@@ -1,5 +1,6 @@
 require 'rails'
 require 'sunrise-core'
+require 'sunrise-file-upload'
 
 module Sunrise
   class Engine < ::Rails::Engine
@@ -34,6 +35,10 @@ module Sunrise
       Paperclip.interpolates('basename') do |attachment, style|
         filename = attachment.original_filename.gsub(/#{File.extname(attachment.original_filename)}$/, "")
         Sunrise::Utils.parameterize_filename( filename )
+      end
+      
+      Sunrise::FileUpload::Manager.before_create do |env, asset|
+        asset.user = env['warden'].user if env['warden']
       end
     end
     

@@ -44,8 +44,4 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
   fileuploads :avatar
-  
-  def to_param
-    "#{id}-#{login}"
-  end
 end

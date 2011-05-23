@@ -33,9 +33,9 @@ Generate simple_form configurations:
   
   rails generate simple_form:install
 
-Generate attach_file_field assets:
+Generate file uploads assets:
   
-  rails generate attach_file_field
+  rails generate sunrise:file_upload:install
 
 Migrate database:
 
