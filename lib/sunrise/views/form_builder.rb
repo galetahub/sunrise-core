@@ -50,7 +50,7 @@ module Sunrise
         script_options = (options.delete(:script) || {}).stringify_keys
         
         params = {
-          :klass => object.class.reflect_on_association(attribute_name).class_name, 
+          :method => attribute_name, 
           :assetable_id => object.new_record? ? nil : object.id, 
           :assetable_type => object.class.name,
           :guid => element_guid
@@ -72,7 +72,7 @@ module Sunrise
           :label => (label || attribute_name.to_s.humanize),
           :object => object,
           :attribute_name => attribute_name,
-          :assets => (value.new_record? ? [] : [value].flatten),
+          :assets => [value].flatten.delete_if { |v| v.nil? || v.new_record? },
           :script_options => script_options.inspect.gsub('=>', ':'),
           :multiple => script_options['multiple'],
           :asset_klass => params[:klass]
