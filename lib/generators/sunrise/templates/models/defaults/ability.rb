@@ -34,8 +34,6 @@ class Ability
     can :manage, :all, :context => :manage
     
     # User cannot destroy self account
-    cannot :destroy, User, :id => @user.id
-    
-    # TODO
+    cannot :destroy, User, :id => @user.id, :context => :manage
   end
 end
