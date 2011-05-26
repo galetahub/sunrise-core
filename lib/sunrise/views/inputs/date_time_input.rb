@@ -30,7 +30,7 @@ module SimpleForm
     private
       
       def formated_value
-        object.send(attribute_name).try(:strftime, "%d.%m.%Y")
+        object.send(attribute_name).try(:strftime, value_format)
       end
       
       def value_format
