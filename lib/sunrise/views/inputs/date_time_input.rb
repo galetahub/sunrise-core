@@ -2,7 +2,8 @@ module SimpleForm
   module Inputs
     class DateTimeInput < Base
       def input
-        #@builder.send(:"#{input_type}_select", attribute_name, input_options, input_html_options)
+        input_html_options[:value] ||= formated_value
+        
         html = [@builder.text_field(attribute_name, input_html_options)]
         
         html << case input_type
@@ -27,7 +28,19 @@ module SimpleForm
       end
 
     private
-
+      
+      def formated_value
+        object.send(attribute_name).try(:strftime, "%d.%m.%Y")
+      end
+      
+      def value_format
+        case input_type
+          when :date then "%d.%m.%Y"
+          when :datetime then "%d.%m.%Y %H:%M"
+          when :time then "%H:%M"
+        end
+      end
+      
       def has_required?
         false
       end
