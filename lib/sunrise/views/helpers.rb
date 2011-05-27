@@ -174,7 +174,7 @@ module Sunrise
 		    image_path = asset_type.nil? ? default_image : "#{File.basename(default_image, extname)}_#{asset_type}#{extname}"
 		    image_full = default_image.gsub(File.basename(default_image), image_path)
 		
-		    path = (asset && !asset.new_record?) ? asset.url(asset_type) : image_full
+		    path = (asset && (asset.respond_to?(:persisted?) ? asset.persisted? : true)) ? asset.url(asset_type) : image_full
 	      
 		    image_tag(path, options)
       end
