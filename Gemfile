@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "~> 3.0.7"
+gem "rails", "~> 3.0.8"
 
 platforms :ruby do
   gem 'nokogiri', '~> 1.4.4'

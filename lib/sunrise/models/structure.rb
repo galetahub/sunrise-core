@@ -18,7 +18,6 @@ module Sunrise
             validates_numericality_of :position, :only_integer => true
             
             has_one :page, :dependent => :destroy
-            has_many :posts, :dependent => :destroy
             
             scope :visible, where(:is_visible => true)
             scope :with_kind, proc {|structure_type| where(:kind => structure_type.id) }
