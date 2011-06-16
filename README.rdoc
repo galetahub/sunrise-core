@@ -1,7 +1,10 @@
 = SunRise CMS
 
 == Install
+
+=== Include gems:
   
+  gem "mysql2", "~> 0.2.10"
   gem 'inherited_resources'
   gem 'paperclip'
   gem 'mime-types'
@@ -10,37 +13,28 @@
   gem 'cancan_namespace'
   gem 'devise'
   gem 'simple_form'
-  gem 'ckeditor', '3.5.2'
-  
-  gem 'enum_field', :git => 'git://github.com/galetahub/enum_field.git'
-  gem 'awesome_nested_set', :git => 'git://github.com/galetahub/awesome_nested_set.git'
-  gem 'salty_slugs', :git => 'git://github.com/galetahub/salty_slugs.git'
-  gem 'attach_file_field', :git => 'git://github.com/galetahub/attach_file_field.git'
+  gem 'ckeditor'
 
-  gem 'sunrise'
+  gem 'sunrise-cms'
+
+=== Generate all your need:
 
   rails generate sunrise:install
+
+It's run all dependent generators:
+
+* simple_form:install
+* sunrise:file_upload:install
+* devise:install
+
+=== Configuration
+
+  cp config/database.yml.sample config/database.yml
+  cp config/application.yml.sample config/application.yml
   
-Feature for Rails 3.1: copy migrations from all plugins, engins:
+=== Database
 
-  rake railties:install:migrations
-
-Generate devise configurations:
-
-  rails generate devise:install
-
-Generate simple_form configurations:
-  
-  rails generate simple_form:install
-
-Generate file uploads assets:
-  
-  rails generate sunrise:file_upload:install
-
-Migrate database:
-
+  rake db:create
   rake db:migrate
 
-Autoload generated models in application.rb:
-
-  config.autoload_paths += %W(#{config.root}/app/models/defaults #{config.root}/app/sweepers)
+Copyright (c) 2011 Aimbulance, released under the MIT license

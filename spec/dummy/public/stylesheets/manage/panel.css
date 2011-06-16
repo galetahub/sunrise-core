@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+#manage-panel a {
+  text-decoration: none;    
+  outline: none;
+}
+#manage-panel a img {
+  border: none;    
+}
+#manage-panel {
+	overflow: hidden;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+	background: #02313f;
+	color: #5b6569;
+	font-size: 90%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#manage-panel .panel-head {
+	display: block;
+	overflow: hidden;
+	position: relative;
+	margin: 0 auto;
+	width: 990px;
+	text-align: left;
+}
+#manage-panel .panel-head .p-logo {
+	display: block;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding: 10px 0px 10px 40px;
+}
+#manage-panel .panel-head .p-logo a {
+	color: #fff;
+	text-decoration: none;
+}
+#manage-panel .panel-main-menu {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 200px;
+	top: 17px;
+}
+#manage-panel .panel-main-menu ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+#manage-panel .panel-main-menu ul li {
+	display: block;
+	float: left;
+	height: 27px;
+	line-height: 27px;
+	font-size: 1em;
+}
+#manage-panel .panel-main-menu ul li a {
+	color: #e7faed;
+	text-decoration: none;
+	padding: 0px 15px;
+	background: none;
+	display: block;
+	height: 27px;
+	float: left;
+}	
+#manage-panel .panel-main-menu ul li a.p-arr {
+	background: url(/images/manage/top_menu_arr.gif) no-repeat right center;
+	padding-right: 15px;
+}
+#manage-panel .panel-main-menu ul li span {
+	background: #bee5a2 url(/images/manage/l_but_corn.gif) no-repeat left top;	
+	color: #011f2b;
+	padding: 0px 0px 0px 15px;
+	display: block;
+	height: 27px;
+	float: left;
+}
+#manage-panel .panel-main-menu ul li span span {
+	background: url(/images/manage/r_but_corn.gif) no-repeat right top;
+	padding: 0px 15px 0px 0px;
+}
+#manage-panel .panel-head .maximize {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 40px;
+	width: 23px;
+	height: 17px;
+	overflow: hidden;
+}
+#manage-panel .panel-head .p-user {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 770px;
+	top: 10px;
+	width: 160px;
+}
+#manage-panel .panel-head .p-user .p-user-info {
+	margin-left: -40px;
+	float: right;
+	width: 100%;
+}
+#manage-panel .panel-head .p-user .p-user-info .p-info {
+	margin-left: 40px;	
+	color: #fff;
+}
+#manage-panel .panel-head .p-user .p-user-info .p-info .p-name {
+	color: #fff;
+	font-size: 0.85em;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+}
+#manage-panel .panel-head .p-user .p-user-info .p-info a.p-exit {
+	text-decoration: underline;
+	font-size: 0.8em;
+	color: #81989f;
+}
+#manage-panel .panel-head .p-user .p-user-foto {
+	float: left;
+	width: 32px;
+	overflow: hidden;
+}

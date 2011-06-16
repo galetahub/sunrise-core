@@ -4,12 +4,14 @@ require 'sunrise-file-upload'
 
 module Sunrise
   class Engine < ::Rails::Engine
-    config.before_initialize do
+    config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), "../../config", 'locales', '**', '*.{rb,yml}').to_s]
+    config.autoload_paths << File.expand_path("../../../app/sweepers", __FILE__)
+      
+    #config.before_initialize do
+    initializer "sunrise.core.setup" do
       ActiveSupport::XmlMini.backend = 'Nokogiri'
       InheritedResources.flash_keys = Sunrise.flash_keys
         
-      config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), "../../config", 'locales', '**', '*.{rb,yml}').to_s]
-      
       I18n.backend = Sunrise::Utils::I18nBackend.new
       
       ActiveSupport.on_load :active_record do

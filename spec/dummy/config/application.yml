@@ -1,0 +1,4 @@
+mailer:
+  subject_prefix: "[dummy] "
+  from: "no-reply@aimbulance.com"
+  reply_to: "info@aimbulance.com"

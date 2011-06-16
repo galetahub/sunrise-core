@@ -1,0 +1,9 @@
+/var/www/gems/sunrise-core/spec/dummy/log/*.log {
+    copytruncate
+    daily
+    rotate 4
+    missingok
+    notifempty
+    compress
+    nodelaycompress
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <%= tag(:meta, :content => render_keywords, :name=>"keywords") %>
+	<%= tag(:meta, :content => render_description, :name=>"description") %>
+	<%= csrf_meta_tag %>
+	<title><%= render_title %></title>
+	<%= stylesheet_link_tag "application" %>
+	<%= stylesheet_link_tag 'manage/panel.css', :media=> 'screen' if content_manager? %>
+  <!--[if lte IE 6]><link href="/stylesheets/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if lte IE 7]><link href="/stylesheets/ie7.css" rel="stylesheet" type="text/css" /><![endif]-->  
+  
+  <script src="https://www.google.com/jsapi?key=" type="text/javascript"></script>
+  <script language="Javascript" type="text/javascript">
+  //<![CDATA[
+    google.load("jquery", "1.5.1");
+    google.load("swfobject", "2.2");
+  //]]>
+  </script>
+  
+  <%= javascript_include_tag "preloader", "rails" %>
+  <%= yield(:head) %>
+</head>
+<body>
+  <%= render :partial => "manage/shared/panel" if content_manager? %>
+  <%= render :partial => 'shared/notice' if flash %>
+  
+  <div class='content'>
+    <%= yield %>
+  </div>
+  
+  <%= yield(:footer) %>
+  
+	<div id="preloader" style="display:none;z-index:5000;" class="load-wait"><div><strong>Загрузка</strong></div></div>
+</body>
+</html>

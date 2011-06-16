@@ -290,7 +290,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<rails>, ["~> 3.0.7"])
+      s.add_runtime_dependency(%q<rails>, ["~> 3.0.8"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.4"])
       s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
       s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.11"])
@@ -302,7 +302,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.0"])
       s.add_runtime_dependency(%q<sunrise-file-upload>, [">= 0"])
     else
-      s.add_dependency(%q<rails>, ["~> 3.0.7"])
+      s.add_dependency(%q<rails>, ["~> 3.0.8"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
       s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
       s.add_dependency(%q<paperclip>, ["~> 2.3.11"])
@@ -315,7 +315,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<sunrise-file-upload>, [">= 0"])
     end
   else
-    s.add_dependency(%q<rails>, ["~> 3.0.7"])
+    s.add_dependency(%q<rails>, ["~> 3.0.8"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
     s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
     s.add_dependency(%q<paperclip>, ["~> 2.3.11"])

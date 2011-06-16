@@ -7,8 +7,6 @@ class Manage::UsersController < Manage::BaseController
   before_filter :make_filter, :only=>[:index]
   before_filter :check_params, :only => [:create, :update]
   
-  cache_sweeper :user_sweeper, :only=>[:update, :destroy]
-  
   def create
     @user = User.new(params[:user])
     @user.roles_attributes = @roles

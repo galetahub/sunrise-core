@@ -1,26 +1,30 @@
-# encoding: utf-8
-require 'rake'
-require 'rake/testtask'
-require 'rake/rdoctask'
-require File.join(File.dirname(__FILE__), 'lib', 'sunrise', 'version')
-
-desc 'Default: run unit tests.'
-task :default => :test
-
-desc 'Test the sunrise plugin.'
-Rake::TestTask.new(:test) do |t|
-  t.libs << 'lib'
-  t.libs << 'test'
-  t.pattern = 'test/**/*_test.rb'
-  t.verbose = true
+# encoding: UTF-8
+require 'rubygems'
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
 end
 
+require 'rake'
+require 'rdoc/task'
+require File.join(File.dirname(__FILE__), 'lib', 'sunrise', 'version')
+
+require 'rspec/core'
+require 'rspec/core/rake_task'
+
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.rspec_opts = ['--options', "spec/spec.opts"]
+end
+
+task :default => :spec
+
 desc 'Generate documentation for the sunrise plugin.'
-Rake::RDocTask.new(:rdoc) do |rdoc|
+RDoc::Task.new do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Sunrise Core'
   rdoc.options << '--line-numbers' << '--inline-source'
-  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 

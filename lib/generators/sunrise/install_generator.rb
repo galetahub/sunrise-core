@@ -50,10 +50,6 @@ module Sunrise
         directory "models", "app/models"
       end
       
-      def copy_sweepers
-        directory "sweepers", "app/sweepers"
-      end
-      
       def download_rails_js
         say_status("fetching rails.js", "", :green)
         get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
@@ -84,10 +80,10 @@ module Sunrise
       end
       
       def autoload_paths
-        log :autoload_paths, "models/defaults and app/sweepers"
+        log :autoload_paths, "models/defaults"
         sentinel = /\.autoload_paths\s+\+=\s+\%W\(\#\{config\.root\}\/extras\)\s*$/
-
-        code = 'config.autoload_paths += %W(#{config.root}/app/models/defaults #{config.root}/app/sweepers)'
+      
+        code = 'config.autoload_paths += %W(#{config.root}/app/models/defaults)'
           
         in_root do
           inject_into_file 'config/application.rb', "    #{code}\n", { :after => sentinel, :verbose => false }
