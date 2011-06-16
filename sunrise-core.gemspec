@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sunrise-core}
-  s.version = "0.1.3"
+  s.version = "0.1.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-06-08}
+  s.date = %q{2011-06-16}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -25,6 +25,8 @@ Gem::Specification.new do |s|
     "app/controllers/manage/structures_controller.rb",
     "app/controllers/manage/users_controller.rb",
     "app/controllers/pages_controller.rb",
+    "app/sweepers/page_sweeper.rb",
+    "app/sweepers/structure_sweeper.rb",
     "app/views/layouts/manage.html.erb",
     "app/views/manage/fileupload/_asset.html.erb",
     "app/views/manage/fileupload/_container.html.erb",
@@ -242,9 +244,6 @@ Gem::Specification.new do |s|
     "lib/generators/sunrise/templates/stylesheets/smoothness/images/ui-icons_888888_256x240.png",
     "lib/generators/sunrise/templates/stylesheets/smoothness/images/ui-icons_cd0a0a_256x240.png",
     "lib/generators/sunrise/templates/stylesheets/smoothness/jquery-ui-1.8.13.custom.css",
-    "lib/generators/sunrise/templates/sweepers/page_sweeper.rb",
-    "lib/generators/sunrise/templates/sweepers/structure_sweeper.rb",
-    "lib/generators/sunrise/templates/sweepers/user_sweeper.rb",
     "lib/generators/sunrise/templates/views/layouts/application.html.erb",
     "lib/generators/sunrise/templates/views/pages/show.html.erb",
     "lib/generators/sunrise/templates/views/shared/_notice.html.erb",
@@ -290,6 +289,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<sunrise-core>, [">= 0"])
       s.add_runtime_dependency(%q<rails>, ["~> 3.0.8"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4.4"])
       s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
@@ -300,8 +300,17 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
       s.add_runtime_dependency(%q<devise>, ["~> 1.3.4"])
       s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.0"])
+      s.add_runtime_dependency(%q<awesome_nested_set>, ["~> 2.0.0"])
+      s.add_runtime_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
+      s.add_runtime_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
       s.add_runtime_dependency(%q<sunrise-file-upload>, [">= 0"])
+      s.add_development_dependency(%q<rspec-rails>, ["= 2.6.1"])
+      s.add_development_dependency(%q<jeweler>, ["= 1.6.2"])
+      s.add_development_dependency(%q<rdoc>, ["~> 3.6.1"])
+      s.add_development_dependency(%q<mysql2>, ["~> 0.2.10"])
+      s.add_development_dependency(%q<capybara>, ["~> 1.0.0"])
     else
+      s.add_dependency(%q<sunrise-core>, [">= 0"])
       s.add_dependency(%q<rails>, ["~> 3.0.8"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
       s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
@@ -312,9 +321,18 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
       s.add_dependency(%q<devise>, ["~> 1.3.4"])
       s.add_dependency(%q<simple_form>, ["~> 1.4.0"])
+      s.add_dependency(%q<awesome_nested_set>, ["~> 2.0.0"])
+      s.add_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
+      s.add_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
       s.add_dependency(%q<sunrise-file-upload>, [">= 0"])
+      s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
+      s.add_dependency(%q<jeweler>, ["= 1.6.2"])
+      s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
+      s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
+      s.add_dependency(%q<capybara>, ["~> 1.0.0"])
     end
   else
+    s.add_dependency(%q<sunrise-core>, [">= 0"])
     s.add_dependency(%q<rails>, ["~> 3.0.8"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4.4"])
     s.add_dependency(%q<inherited_resources>, ["~> 1.2.2"])
@@ -325,7 +343,15 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<cancan_namespace>, ["~> 0.1.2"])
     s.add_dependency(%q<devise>, ["~> 1.3.4"])
     s.add_dependency(%q<simple_form>, ["~> 1.4.0"])
+    s.add_dependency(%q<awesome_nested_set>, ["~> 2.0.0"])
+    s.add_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
+    s.add_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
     s.add_dependency(%q<sunrise-file-upload>, [">= 0"])
+    s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
+    s.add_dependency(%q<jeweler>, ["= 1.6.2"])
+    s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
+    s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
+    s.add_dependency(%q<capybara>, ["~> 1.0.0"])
   end
 end
 
