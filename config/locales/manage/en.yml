@@ -126,6 +126,7 @@ en:
       filter: "Filter"
       search: "Search"
       clear: "Clean"
+      total_count: "Total"
     
     position:
       down: "Lower down"

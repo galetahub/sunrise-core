@@ -126,6 +126,7 @@ ru:
       filter: "Фильтр"
       search: "Поиск"
       clear: "Очистить"
+      total_count: "Всего"
     
     position:
       down: "Опустить вниз"

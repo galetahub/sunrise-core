@@ -126,6 +126,7 @@ uk:
       filter: "Фільтр"
       search: "Пошук"
       clear: "Очистити"
+      total_count: "Всього"
     
     position:
       down: "Опустити вниз"

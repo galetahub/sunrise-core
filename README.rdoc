@@ -37,4 +37,8 @@ It's run all dependent generators:
   rake db:create
   rake db:migrate
 
+== Tests
+
+  rake spec
+
 Copyright (c) 2011 Aimbulance, released under the MIT license

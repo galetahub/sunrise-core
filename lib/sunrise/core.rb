@@ -42,6 +42,11 @@ module Sunrise
     end
   end
   
+  module NestedSet
+    autoload :Descendants, 'sunrise/nested_set/descendants'
+    autoload :Depth, 'sunrise/nested_set/depth'
+  end
+  
   # Custom flash_keys
   mattr_accessor :flash_keys
   @@flash_keys = [ :success, :failure ]

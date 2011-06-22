@@ -2,6 +2,8 @@
   <div class="filt-bl">
     <%= link_to_function t('manage.model_filter.title'), "Manage.toggle_element('block_filter')", :class=>"dark-arr" %>
     
+    <%= t('manage.model_filter.total_count') %>: <%= @users.total_count %>
+    
     <%= cookie_content_tag(:div, :id=>"block_filter", :class=>"filt") do %>
       <%= form_for @search, :as => :search, :url=>manage_users_path, :html=>{:method=>:get} do |f| %>
         <%= f.label :email, t('activerecord.attributes.user.email') %>

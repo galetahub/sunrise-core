@@ -6,8 +6,7 @@ module Sunrise
   class Engine < ::Rails::Engine
     config.i18n.load_path += Dir[File.join(File.dirname(__FILE__), "../../config", 'locales', '**', '*.{rb,yml}').to_s]
     config.autoload_paths << File.expand_path("../../../app/sweepers", __FILE__)
-      
-    #config.before_initialize do
+    
     initializer "sunrise.core.setup" do
       ActiveSupport::XmlMini.backend = 'Nokogiri'
       InheritedResources.flash_keys = Sunrise.flash_keys
@@ -26,6 +25,9 @@ module Sunrise
       ActiveSupport.on_load :action_view do
         ActionView::Base.send :include, Sunrise::Views::Helpers
       end
+      
+      CollectiveIdea::Acts::NestedSet::Model.send :include, Sunrise::NestedSet::Depth
+      CollectiveIdea::Acts::NestedSet::Model::InstanceMethods.send :include, Sunrise::NestedSet::Descendants
     end
     
     # Wrap errors in ul->li list and skip labels.
