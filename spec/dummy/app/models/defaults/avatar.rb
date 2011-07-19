@@ -31,6 +31,7 @@ class Avatar < Asset
                     :convert_options => { :all => "-strip" },
 	                  :styles => { :thumb => "50x50#", :small => "32x32#" }
 	
+	validates_attachment_presence :data
 	validates_attachment_size :data, :less_than => 1.megabyte
 	validates_attachment_content_type :data, :content_type => Sunrise::Utils::IMAGE_TYPES
 end

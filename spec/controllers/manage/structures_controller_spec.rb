@@ -1,16 +1,21 @@
+require 'spec_helper'
+
 describe Manage::StructuresController do
   render_views
   
   before(:all) do
-    Structure.create!(:title => "Main page", :slug => "main-page", :structure_type => StructureType.main)
+    @root = Factory.create(:structure_main)
+    @page = Factory.create(:structure_page, :parent => @root)
   end
   
   context "administrator" do
     login_admin
     
     it "should render index action" do
-      controller.should_receive :index
       get :index
+      assigns(:structure).should == @root
+      assigns(:structures).should include(@page)
+      response.should render_template('index')
     end
     
     it "should render new action" do
@@ -19,15 +24,15 @@ describe Manage::StructuresController do
       response.should render_template("new")
     end
     
-    it "should create new user" do
+    it "should create new structure" do
       lambda {
-        post :create, :structure => Factory.attributes_for(:structure)
-      }.should change { Structure.count }.by(1)
+        post :create, :structure => Factory.attributes_for(:structure_page).merge(:parent_id => @root.id)
+      }.should change { @root.children.count }.by(1)
     end
         
     context "exists structure" do
       before(:each) do
-        @structure = Factory.create(:structure)
+        @structure = Factory.create(:structure_page, :parent => @root)
       end
       
       it "should render edit action" do
@@ -68,24 +73,24 @@ describe Manage::StructuresController do
       post :create
     end
     
-    context "with exists user" do
+    context "with exists structure" do
       before(:each) do
-        @user = Factory.create(:default_user)
+        @structure = Factory.create(:structure_page, :parent => @root)
       end
       
       it "should not render edit action" do
         controller.should_not_receive :edit
-        get :edit, :id => @user.id
+        get :edit, :id => @structure.id
       end
       
       it "should not render update action" do
         controller.should_not_receive :update
-        put :update, :id => @user.id
+        put :update, :id => @structure.id
       end
       
       it "should not render destroy action" do
         controller.should_not_receive :destroy
-        delete :destroy, :id => @user.id
+        delete :destroy, :id => @structure.id
       end
     end
   end

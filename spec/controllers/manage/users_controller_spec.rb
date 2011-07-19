@@ -1,12 +1,13 @@
+require 'spec_helper'
+
 describe Manage::UsersController do
   render_views
   
   context "administrator" do
     login_admin
     
-    it "should render index action" do
-      controller.should_receive :index
-      get :index
+    before(:each) do
+      @attrs = Factory.attributes_for(:default_user)
     end
     
     it "should render new action" do
@@ -17,8 +18,14 @@ describe Manage::UsersController do
     
     it "should create new user" do
       lambda {
-        post :create, :user => Factory.attributes_for(:default_user)
+        post :create, :user => @attrs
       }.should change { User.defaults.count }.by(1)
+    end
+    
+    it "should create user with redactor role" do
+      post :create, :user => @attrs.merge(:role_type_id => RoleType.redactor.id)
+      assigns(:user).should be_valid
+      assigns(:user).role_type_id.should == RoleType.redactor.id
     end
     
     it "should not destroy self account" do
@@ -31,9 +38,22 @@ describe Manage::UsersController do
         @user = Factory.create(:default_user)
       end
       
+      it "should render index action" do
+        get :index
+        assigns(:users).should include(@user)
+        response.should render_template('index')
+      end
+      
       it "should render edit action" do
         controller.should_receive :edit
         get :edit, :id => @user.id
+      end
+      
+      it "should update user role" do
+        put :update, :id => @user.id, :user => {:role_type_id => RoleType.redactor.id}
+        assigns(:user).should be_valid
+        assigns(:user).role_type_id.should == RoleType.redactor.id
+        response.should redirect_to(manage_users_path)
       end
       
       it "should destroy user" do

@@ -44,4 +44,6 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
   fileuploads :avatar
+  
+  validates_presence_of :name
 end
