@@ -25,7 +25,9 @@ module Sunrise
       ActiveSupport.on_load :action_view do
         ActionView::Base.send :include, Sunrise::Views::Helpers
       end
-      
+    end
+    
+    initializer "sunrise.core.awesome_nested_set" do
       CollectiveIdea::Acts::NestedSet::Model.send :include, Sunrise::NestedSet::Depth
       CollectiveIdea::Acts::NestedSet::Model::InstanceMethods.send :include, Sunrise::NestedSet::Descendants
     end

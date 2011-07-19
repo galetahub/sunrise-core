@@ -19,6 +19,9 @@ module Sunrise
             
             has_one :page, :dependent => :destroy
             
+            acts_as_nested_set
+            set_callback :move, :after, :update_depth
+            
             scope :visible, where(:is_visible => true)
             scope :with_kind, proc {|structure_type| where(:kind => structure_type.id) }
             scope :with_depth, proc {|level| where(:depth => level.to_i) }

@@ -6,6 +6,7 @@ module Sunrise
   autoload :ModelFilter, 'sunrise/model_filter'  
   autoload :Plugins, 'sunrise/plugins'
   autoload :Plugin, 'sunrise/plugin'
+  autoload :Utils, 'sunrise/utils'
   
   module Models
     autoload :RoleType,      'sunrise/models/role_type'
@@ -22,24 +23,6 @@ module Sunrise
   module Views
     autoload :Helpers, 'sunrise/views/helpers'
     autoload :FormBuilder, 'sunrise/views/form_builder'
-  end
-  
-  module Utils
-    autoload :Header, 'sunrise/utils/header'
-    autoload :Mysql, 'sunrise/utils/mysql'
-    autoload :Settingslogic, 'sunrise/utils/settingslogic'
-    autoload :Transliteration, 'sunrise/utils/transliteration'
-    autoload :AccessibleAttributes, 'sunrise/utils/accessible_attributes'
-    autoload :I18nBackend, 'sunrise/utils/i18n_backend'
-    
-    IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/jpg', 'image/pjpeg', 'image/tiff', 'image/x-png']
-    
-    def self.parameterize_filename(filename)
-      extension = File.extname(filename)
-      basename = filename.gsub(/#{extension}$/, "")
-        
-      [basename.parameterize('_'), extension].join.downcase
-    end
   end
   
   module NestedSet

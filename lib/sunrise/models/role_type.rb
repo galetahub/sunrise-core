@@ -9,6 +9,10 @@ module Sunrise
       
       def title
         I18n.t(@code, :scope => [:manage, :role, :kind])
+      end
+      
+      def self.legal?(value)
+        all.map(&:id).include?(value)
       end  
     end
   end

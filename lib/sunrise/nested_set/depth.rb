@@ -2,7 +2,7 @@ module Sunrise
   module NestedSet
     module Depth
       extend ActiveSupport::Concern
-
+            
       module ClassMethods
         # Update cached_level attribute for all records tree
         def update_depth
@@ -34,6 +34,7 @@ module Sunrise
       end
       
       module InstanceMethods
+        
         # Check is model has depth column
         def depth?
           self.class.depth?

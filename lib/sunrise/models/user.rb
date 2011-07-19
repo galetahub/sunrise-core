@@ -10,7 +10,7 @@ module Sunrise
       module ClassMethods
         def self.extended(base)
           base.class_eval do        
-            has_many :roles, :dependent => :delete_all
+            has_many :roles, :dependent => :delete_all, :autosave => true
             has_one :avatar, :as => :assetable, :dependent => :destroy, :autosave => true
             
             scope :with_role, lambda {|role| joins(:roles).where(["`roles`.role_type = ?", role.id]) }
@@ -73,7 +73,7 @@ module Sunrise
         def role_type_id=(value)
           role_id = value.blank? ? nil : value.to_i
           
-          if ::RoleType.all.map(&:id).include?(role_id)
+          if ::RoleType.legal?(role_id)
             ::RoleType.all.each do |role_type|
               create_or_destroy_role(role_type.id, role_type.id == role_id)
             end
