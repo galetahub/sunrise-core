@@ -29,6 +29,7 @@ class Picture < Asset
                     :convert_options => { :all => "-strip" },
 	                  :styles => { :content => '575>', :thumb => '80x80#' }
 	
+	validates_attachment_presence :data
 	validates_attachment_size :data, :less_than => 2.megabytes
 	validates_attachment_content_type :data, :content_type => Sunrise::Utils::IMAGE_TYPES
 end
