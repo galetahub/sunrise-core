@@ -16,7 +16,7 @@
       
       <div id="users" class="stage">
         <%= render :partial=>"manage/users/user", :collection => @users %>
-        <%= paginate @users %>
+        <%= paginate @users, :theme => 'manage' %>
       </div>
       
       <script type='text/javascript'>

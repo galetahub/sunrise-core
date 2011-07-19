@@ -1,6 +1,6 @@
 <% param ||= "s"%>
 <ul class="lang-tabs" id="lang_tab_ul_<%=param%>">
-  <% Globalize.available_locales.each do |locale| %>
+  <% Sunrise.available_locales.each do |locale| %>
     <%= content_tag(:li, :class=>(I18n.locale.to_s == locale.to_s ? 'active' : 'not-active')) do %>
       <span><%= link_to_function t("manage.locale.#{locale}"), 'TabPanel.click(event)', :class=>locale, :id=>"#{param + locale.to_s}" %></span>
     <% end %>
