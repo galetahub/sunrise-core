@@ -8,13 +8,11 @@ class Manage::UsersController < Manage::BaseController
   before_filter :check_params, :only => [:create, :update]
   
   def create
-    @user = User.new(params[:user])
-    @user.roles_attributes = @roles
+    @user.attributes = params[:user]
     create! { manage_users_path } 
   end
   
   def update
-    @user.roles_attributes = @roles
     update!{ manage_users_path }
   end
   
@@ -59,8 +57,6 @@ class Manage::UsersController < Manage::BaseController
     
     def check_params
       unless params[:user].blank?
-        @roles = params[:user].delete(:roles_attributes)
-        
         if params[:user][:password].blank?
           params[:user].delete(:password)
           params[:user].delete(:password_confirmation)
@@ -68,9 +64,5 @@ class Manage::UsersController < Manage::BaseController
         
         @user.accessible = :all
       end
-    end
-    
-    def find_user
-      @user = User.find(params[:id])
     end
 end

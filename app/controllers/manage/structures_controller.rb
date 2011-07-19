@@ -31,7 +31,7 @@ class Manage::StructuresController < Manage::BaseController
   protected
   
     def find_root
-      @structure ||= Structure.with_kind(StructureType.main).with_depth(0).find(:first)
+      @structure ||= Structure.with_kind(StructureType.main).roots.find(:first)
       @structure
     end
     

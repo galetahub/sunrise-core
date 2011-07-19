@@ -7,12 +7,12 @@ class Manage::AssetsController < Manage::BaseController
   authorize_resource
   
   def create
-    @asset ||= @klass.new(params[:asset])
+    @asset = @klass.new(params[:asset])
     
   	@asset.assetable_type = params[:assetable_type]
 		@asset.assetable_id = params[:assetable_id] || 0
 		@asset.guid = params[:guid]
-  	@asset.data = params[:data_file]
+  	@asset.data = params[:data]
   	@asset.user = current_user
     @asset.save
     
@@ -27,6 +27,7 @@ class Manage::AssetsController < Manage::BaseController
     
     respond_with(@asset) do |format|
       format.html { head :ok }
+      format.xml { render :xml => @asset.to_xml }
     end
   end
   
@@ -47,24 +48,6 @@ class Manage::AssetsController < Manage::BaseController
     end
     
     def find_klass
-      c_names = []
-      c_values = []
-      
-      unless params[:assetable_id].blank?
-        c_names << "assetable_id = ?"
-        c_values << params[:assetable_id].to_i
-        
-        c_names << "assetable_type = ?"
-        c_values << params[:assetable_type]
-      else
-        c_names << "guid = ?"
-        c_values << params[:guid]
-      end
-      
       @klass = params[:klass].blank? ? Asset : params[:klass].classify.constantize
-      
-      if params[:collection].blank?
-        @asset = @klass.where([c_names.join(' AND ')] + c_values).first
-      end
     end
 end

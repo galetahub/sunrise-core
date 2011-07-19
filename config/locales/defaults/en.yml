@@ -145,5 +145,5 @@ en:
         less_than_or_equal_to: "must be less than or equal to %{count}"
         odd: "must be odd"
         even: "must be even"
-        record_invalid: "Validation failed: {{errors}}"
+        record_invalid: "Validation failed: %{errors}"
        # Append your own errors here or at the model/attributes scope.

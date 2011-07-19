@@ -16,7 +16,6 @@ class PageSweeper < ActionController::Caching::Sweeper
 	private
 	
 	  def expire(item=nil)
-  	  expire_fragment(%r{/pages})
-  	  StructureSweeper.sweep!
+  	  Sunrise::Utils.clear_cache
 	  end
 end
