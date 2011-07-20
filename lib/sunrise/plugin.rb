@@ -37,8 +37,10 @@ module Sunrise
       plugin.version ||= Sunrise::VERSION.dup
       
       if plugin.model
-        model_path = (plugin.model == true ? "sunrise/models/#{plugin.name}" : plugin.model)
-        Sunrise::Models.send(:autoload, plugin.module_name, model_path)
+        [plugin.model].flatten.each do |model|
+          model_path = (model == true ? "sunrise/models/#{plugin.name}" : model)
+          Sunrise::Models.send(:autoload, plugin.module_name, model_path)
+        end
       end
     end
   end
