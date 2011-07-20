@@ -207,6 +207,8 @@ en:
       _: "-"
       created_at_desc: "by date descending"
       created_at_asc: "date ascending"
+      updated_at_desc: "updating descending"
+      updated_at_asc: "updating ascending"
       title_desc: "by title descending"
       title_asc: "by title ascending"
       name_desc: "by name descending"
