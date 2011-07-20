@@ -38,10 +38,21 @@ module Sunrise
       
       if plugin.model
         [plugin.model].flatten.each do |model|
-          model_path = (model == true ? "sunrise/models/#{plugin.name}" : model)
-          Sunrise::Models.send(:autoload, plugin.module_name, model_path)
+          module_name = plugin.module_name
+          model_path = "sunrise/models/#{plugin.name}"
+          
+          case model
+            when String then model_path = model
+            when Symbol then 
+              model_name = model.to_s.singularize
+              module_name = model_name.camelize.to_sym
+              model_path = "sunrise/models/#{model_name}"
+          end
+          
+          Sunrise::Models.send(:autoload, module_name, model_path)
         end
       end
+      
     end
   end
   
