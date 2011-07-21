@@ -14,7 +14,7 @@ platforms :ruby do
   gem 'devise', '~> 1.4.2'
   gem 'simple_form', '~> 1.4.2'
   gem 'awesome_nested_set', '~> 2.0.1'
-  gem 'ckeditor', '~> 3.6.0.pre'
+  gem 'ckeditor'
   
   gem 'galetahub-enum_field', '~> 0.1.4', :require => 'enum_field'
   gem 'galetahub-salty_slugs', '~> 1.0.0', :require => 'salty_slugs'
