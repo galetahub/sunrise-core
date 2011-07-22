@@ -52,8 +52,6 @@ module Sunrise
           Sunrise::Models.send(:autoload, module_name, model_path)
         end
       end
-      
     end
   end
-  
 end
