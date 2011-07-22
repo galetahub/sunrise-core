@@ -4,7 +4,9 @@
 
 === Include gems:
   
-  gem "mysql2", "~> 0.2.10"
+  gem "rails", "~> 3.0.9"
+  gem "mysql2", "~> 0.2.11"
+  
   gem 'inherited_resources'
   gem 'paperclip'
   gem 'mime-types'
@@ -13,9 +15,14 @@
   gem 'cancan_namespace'
   gem 'devise'
   gem 'simple_form'
+  gem 'awesome_nested_set'
   gem 'ckeditor'
+  
+  gem 'galetahub-enum_field', '~> 0.1.4', :require => 'enum_field'
+  gem 'galetahub-salty_slugs', '~> 1.0.0', :require => 'salty_slugs'
 
-  gem 'sunrise-cms'
+  gem "sunrise-cms"
+  gem "sunrise-file-upload"
 
 === Generate all your need:
 
