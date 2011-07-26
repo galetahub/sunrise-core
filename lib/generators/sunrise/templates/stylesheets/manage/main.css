@@ -1083,3 +1083,16 @@ input.hidden {
 .ui-timepicker-div dl dt{ height: 25px; }
 .ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
+.ui-autocomplete li.ui-menu-item a {
+  overflow:hidden;
+}
+.ui-autocomplete li.ui-menu-item img {
+  margin-right: 10px;
+}
+.ui-autocomplete li.ui-menu-item span {
+  line-height: 32px;
+}
+.ui-autocomplete li.ui-menu-item img, .ui-autocomplete li.ui-menu-item span {
+  display: block;
+  float:left;
+}

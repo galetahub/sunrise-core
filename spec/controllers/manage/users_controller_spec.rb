@@ -44,6 +44,24 @@ describe Manage::UsersController do
         response.should render_template('index')
       end
       
+      it 'should export user to csv' do
+        get :index, :format => :csv
+        response.should be_success
+      end
+      
+      it 'should search users by email' do
+        get :index, :term => @user.email.split(/@/).first, :format => :json
+        assigns(:users).should_not be_empty
+        assigns(:users).should include(@user)
+        response.should be_success
+      end
+      
+      it 'should not found users with not exists email' do
+        get :index, :term => "blablabla", :format => :json
+        assigns(:users).should be_empty
+        response.should be_success
+      end
+      
       it "should render edit action" do
         controller.should_receive :edit
         get :edit, :id => @user.id

@@ -13,13 +13,31 @@ module Sunrise
             has_many :roles, :dependent => :delete_all, :autosave => true
             has_one :avatar, :as => :assetable, :dependent => :destroy, :autosave => true
             
+            before_validation :generate_login, :if => :has_login?
+            before_create :set_default_role, :if => :roles_empty?
+            
+            scope :with_email, lambda {|email| where(["email LIKE ?", "#{email}%"]) }
             scope :with_role, lambda {|role| joins(:roles).where(["`roles`.role_type = ?", role.id]) }
             scope :defaults, with_role(::RoleType.default)
             scope :moderators, with_role(::RoleType.moderator)
-            scope :admins, with_role(::RoleType.admin)
+            scope :admins, with_role(::RoleType.admin)            
+          end
+        end
+        
+        def to_csv(options = {})
+          options = { :columns => [:id, :email, :name, :current_sign_in_ip] }.merge(options)
+          query = unscoped.order("#{quoted_table_name}.id ASC").select(options[:columns])
+        
+          FasterCSV.generate do |csv|
+            csv << options[:columns]
             
-            before_validation :generate_login, :if => :has_login?
-            before_create :set_default_role, :if => :roles_empty?
+            query.find_in_batches do |group|
+              group.each do |user|
+                csv << options[:columns].inject([]) do |items, attr_name|
+                  items << user.send(attr_name)
+                end
+              end
+            end
           end
         end
       end
@@ -91,6 +109,14 @@ module Sunrise
           events = []
           events << 'activate' if state == 'register'
           events
+        end
+        
+        def avatar_small_url
+          if self.avatar
+            self.avatar.url(:small)
+          else
+            "/images/manage/user_pic_small.gif"
+          end
         end
         
         protected

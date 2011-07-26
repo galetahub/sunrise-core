@@ -7,6 +7,18 @@ class Manage::UsersController < Manage::BaseController
   before_filter :make_filter, :only=>[:index]
   before_filter :check_params, :only => [:create, :update]
   
+  respond_to :json, :csv, :only => [:index]
+
+  def index
+    index! do |format|
+      format.csv { send_data(User.to_csv, :filename => "users_#{Date.today}.csv", :type => "text/csv") }
+      format.json do
+        @users = User.with_email(params[:term]).includes(:avatar).select("users.id, users.name, users.email").limit(50)
+        render :json => @users.as_json(:methods => [:avatar_small_url])
+      end
+    end
+  end
+  
   def create
     @user.attributes = params[:user]
     create! { manage_users_path } 

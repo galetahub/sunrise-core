@@ -14,6 +14,7 @@ platforms :ruby do
   gem 'devise', '~> 1.4.2'
   gem 'simple_form', '~> 1.4.2'
   gem 'awesome_nested_set', '~> 2.0.1'
+  gem "fastercsv", "~> 1.5.4"
   gem 'ckeditor'
   
   gem 'galetahub-enum_field', '~> 0.1.4', :require => 'enum_field'
