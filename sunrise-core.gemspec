@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sunrise-core}
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Igor Galeta", "Pavlo Galeta"]
-  s.date = %q{2011-07-22}
+  s.date = %q{2011-07-27}
   s.description = %q{Sunrise is a Aimbulance CMS}
   s.email = %q{galeta.igor@gmail.com}
   s.extra_rdoc_files = [
@@ -312,6 +312,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<devise>, ["~> 1.4.2"])
       s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.2"])
       s.add_runtime_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
+      s.add_runtime_dependency(%q<fastercsv>, ["~> 1.5.4"])
       s.add_runtime_dependency(%q<ckeditor>, [">= 0"])
       s.add_runtime_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
       s.add_runtime_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
@@ -321,6 +322,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rdoc>, ["~> 3.6.1"])
       s.add_development_dependency(%q<mysql2>, ["~> 0.2.10"])
       s.add_development_dependency(%q<capybara>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<rspec-rails>, ["= 2.6.1"])
+      s.add_development_dependency(%q<jeweler>, ["= 1.6.2"])
+      s.add_development_dependency(%q<rdoc>, ["~> 3.6.1"])
+      s.add_development_dependency(%q<mysql2>, ["~> 0.2.10"])
+      s.add_development_dependency(%q<capybara>, ["~> 1.0.0"])
+      s.add_development_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_development_dependency(%q<factory_girl>, [">= 0"])
+      s.add_development_dependency(%q<fuubar>, [">= 0"])
       s.add_development_dependency(%q<rspec-rails>, ["= 2.6.1"])
       s.add_development_dependency(%q<jeweler>, ["= 1.6.2"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.6.1"])
@@ -374,6 +383,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<devise>, ["~> 1.4.2"])
       s.add_dependency(%q<simple_form>, ["~> 1.4.2"])
       s.add_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
+      s.add_dependency(%q<fastercsv>, ["~> 1.5.4"])
       s.add_dependency(%q<ckeditor>, [">= 0"])
       s.add_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
       s.add_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
@@ -383,6 +393,14 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
       s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
       s.add_dependency(%q<capybara>, ["~> 1.0.0"])
+      s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
+      s.add_dependency(%q<jeweler>, ["= 1.6.2"])
+      s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
+      s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
+      s.add_dependency(%q<capybara>, ["~> 1.0.0"])
+      s.add_dependency(%q<database_cleaner>, [">= 0"])
+      s.add_dependency(%q<factory_girl>, [">= 0"])
+      s.add_dependency(%q<fuubar>, [">= 0"])
       s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
       s.add_dependency(%q<jeweler>, ["= 1.6.2"])
       s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
@@ -437,6 +455,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<devise>, ["~> 1.4.2"])
     s.add_dependency(%q<simple_form>, ["~> 1.4.2"])
     s.add_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
+    s.add_dependency(%q<fastercsv>, ["~> 1.5.4"])
     s.add_dependency(%q<ckeditor>, [">= 0"])
     s.add_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
     s.add_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
@@ -446,6 +465,14 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
     s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
     s.add_dependency(%q<capybara>, ["~> 1.0.0"])
+    s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
+    s.add_dependency(%q<jeweler>, ["= 1.6.2"])
+    s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
+    s.add_dependency(%q<mysql2>, ["~> 0.2.10"])
+    s.add_dependency(%q<capybara>, ["~> 1.0.0"])
+    s.add_dependency(%q<database_cleaner>, [">= 0"])
+    s.add_dependency(%q<factory_girl>, [">= 0"])
+    s.add_dependency(%q<fuubar>, [">= 0"])
     s.add_dependency(%q<rspec-rails>, ["= 2.6.1"])
     s.add_dependency(%q<jeweler>, ["= 1.6.2"])
     s.add_dependency(%q<rdoc>, ["~> 3.6.1"])
