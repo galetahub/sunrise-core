@@ -34,4 +34,7 @@
       <%= link_to_sort(t('manage.users.sort.name_asc'), :name=>"name", :order_type=>'asc') %>
     </div>
   </div>
+  <div class="sort">
+    <%= link_to t('manage.users.export'), manage_users_path(:format => :csv) %>
+  </div>
 </div>

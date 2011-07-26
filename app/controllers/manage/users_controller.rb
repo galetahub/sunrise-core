@@ -50,9 +50,9 @@ class Manage::UsersController < Manage::BaseController
     respond_with(@user, :location => manage_users_path)
   end
 
-  # POST /manage/users/1/delete
-  def delete
-    @user.delete!
+  # POST /manage/users/1/unlock
+  def unlock
+    @user.unlock_access!
     respond_with(@user, :location => manage_users_path)
   end
   

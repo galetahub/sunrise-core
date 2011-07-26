@@ -1,4 +1,6 @@
 # encoding: utf-8
+require 'fastercsv'
+
 module Sunrise
   module Models
     module User
@@ -99,15 +101,18 @@ module Sunrise
         end
         
         def state
-          return 'active' if active_for_authentication?
+          return 'active'   if active_for_authentication?
           return 'register' unless confirmed?
-          return 'suspend' if access_locked?
-          'pending'
+          return 'suspend'  if access_locked?
+          return 'pending'
         end
         
         def events_for_current_state
           events = []
-          events << 'activate' if state == 'register'
+          events << 'activate' unless confirmed?
+          events << 'unlock' if access_locked?
+          # TODO: ban access for active users
+          # events << 'suspend' if active_for_authentication?
           events
         end
         

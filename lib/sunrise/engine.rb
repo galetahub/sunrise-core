@@ -1,4 +1,7 @@
 require 'rails'
+require 'awesome_nested_set'
+require 'inherited_resources'
+require 'paperclip'
 require 'sunrise-core'
 require 'sunrise-file-upload'
 
