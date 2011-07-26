@@ -4,6 +4,9 @@ require 'sunrise/views/inputs/date_time_input'
 module Sunrise
   module Views
     class FormBuilder < ::SimpleForm::FormBuilder
+      include ActionView::Helpers::JavaScriptHelper
+      include ActionView::Helpers::TagHelper
+      
       delegate :concat, :content_tag, :link_to, :link_to_function, :dom_id, :to => :template
       
       def input(attribute_name, options = {}, &block)
