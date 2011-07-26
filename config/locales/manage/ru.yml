@@ -144,6 +144,7 @@ ru:
         delete: "Удалить"
         unsuspend: "Разморозить"
         activate: "Активировать"
+        unlock: "Разблокировать"
       roles: "Роли"
       
     users:
@@ -152,6 +153,7 @@ ru:
       email: "email"
       category: "категория"
       name: "Имя"
+      export: "Экспортировать"
       
       sort:
         _: "-"

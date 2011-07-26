@@ -79,6 +79,30 @@ describe Manage::UsersController do
           delete :destroy, :id => @user.id
         }.should change { User.defaults.count }.by(-1)
       end
+      
+      context "user events" do
+        it 'should activate not confirmed user' do
+          @user.confirmed_at = nil
+          @user.save
+          
+          post :activate, :id => @user.id
+          
+          assigns(:user).should be_confirmed
+          
+          response.should redirect_to(manage_users_path)
+        end
+        
+        it 'should unlock locked user' do
+          @user.lock_access!
+          @user.should_not be_active_for_authentication
+          
+          post :unlock, :id => @user.id
+          
+          assigns(:user).should be_active_for_authentication
+          
+          response.should redirect_to(manage_users_path)
+        end
+      end
     end
   end
   
@@ -118,6 +142,16 @@ describe Manage::UsersController do
       it "should not render destroy action" do
         controller.should_not_receive :destroy
         delete :destroy, :id => @user.id
+      end
+      
+      it "should not render activate action" do
+        controller.should_not_receive :activate
+        post :activate, :id => @user.id
+      end
+      
+      it "should not render unlock action" do
+        controller.should_not_receive :unlock
+        post :unlock, :id => @user.id
       end
     end
   end

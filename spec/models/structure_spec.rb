@@ -46,5 +46,13 @@ describe Structure do
       @structure.descendants_count.should == 0
       @root.descendants_count.should == 1
     end
+    
+    it 'should calc depth column' do
+      st = Factory.build(:structure_page, :parent => nil)
+      st.parent_id = @structure.id
+      st.save
+      
+      st.depth.should == 2
+    end
   end
 end

@@ -988,6 +988,16 @@ table.page-info td.check input {
 	line-height: 22px;
 	padding: 0px 10px 0px 25px;
 }
+.user-buts a.unlock {
+	background: url(/images/manage/but_unfreze_lc.gif) no-repeat left top;
+	font-size: 0.9em;
+}
+.user-buts a.unlock span {
+	background: url(/images/manage/but_unfreze_rc.gif) no-repeat right top;
+	display: block;
+	line-height: 22px;
+	padding: 0px 10px 0px 25px;
+}
 .user-buts a.delete {
 	background: url(/images/manage/but_block_lc.gif) no-repeat left top;
 	font-size: 0.9em;

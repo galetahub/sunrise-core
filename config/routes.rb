@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     
 	  resources :users do
 	    member do
-        post :activate, :suspend, :register, :delete, :unsuspend
+        post :activate, :suspend, :unsuspend, :unlock
       end
 	  end
 		

@@ -55,5 +55,13 @@ describe User do
     it 'should return default avatar image' do
       @user.avatar_small_url.should == "/images/manage/user_pic_small.gif"
     end
+    
+    it "should return current user events" do
+      @user.confirmed_at = nil
+      @user.lock_access!
+      
+      @user.events_for_current_state.should include('unlock')
+      @user.events_for_current_state.should include('activate')
+    end
   end
 end
