@@ -43,6 +43,7 @@ uk:
         content_en: "Зміст (eng.)"
         created_at: "Дата / Час"
         picture: "Зображення"
+        published_at: "Дата публікації"
       
       page:
         title: "Назва"

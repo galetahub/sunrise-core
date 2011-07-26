@@ -43,6 +43,7 @@ ru:
         content_en: "Содержание (eng.)"
         created_at: "Дата/Время"
         picture: "Картинка"
+        published_at: "Дата публикации"
       
       page:
         title: "Название"

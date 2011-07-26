@@ -43,6 +43,7 @@ en:
         content_en: "Contents (eng.)"
         created_at: "Date / Time"
         picture: "Picture"
+        published_at: "Published"
       
       page:
         title: "Name"
