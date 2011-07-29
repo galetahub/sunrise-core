@@ -16,10 +16,7 @@ module Manage::BaseHelper
 	end
 	
 	def options_for_ckeditor(options = {})
-	  {:width=>700, :height=>400, 
-	   :swf_params=>{:assetable_type=>current_user.class.name, :assetable_id=>current_user.id}
-	     
-	  }.update(options)
+	  { :width => 860, :height => 400 }.merge(options)
 	end
 	
 	def white_block_form(options = {}, &block)
