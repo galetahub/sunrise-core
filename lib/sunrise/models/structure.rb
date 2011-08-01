@@ -30,7 +30,14 @@ module Sunrise
         end
         
         def find_by_permalink(value)
-          value.to_s.is_int? ? find(value) : where(:slug => value.to_s).first
+          return if value.blank?
+          value.to_s.is_int? ? where(:id => value.to_i).first : where(:slug => value.to_s).first
+        end
+        
+        def find_by_permalink!(value)
+          record = find_by_permalink(value)
+          raise ActiveRecord::RecordNotFound, "Couldn't find structure by #{value}" if record.nil?
+          return record
         end
       end
       

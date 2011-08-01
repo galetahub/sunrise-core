@@ -55,4 +55,29 @@ describe Structure do
       st.depth.should == 2
     end
   end
+  
+  context "class methods" do
+    before(:each) do
+      @structure.save!
+    end
+    
+    it "should find structure by permalink" do
+      Structure.find_by_permalink(@structure.id).should == @structure
+      Structure.find_by_permalink(@structure.slug).should == @structure
+    end
+    
+    it "should not find structure with wrong permalink" do
+      Structure.find_by_permalink(nil).should be_nil
+      Structure.find_by_permalink('wrong').should be_nil
+      Structure.find_by_permalink(Time.now.to_i).should be_nil
+    end
+    
+    it "should raise exception if structure not found" do
+      lambda {
+        Structure.find_by_permalink!('wrong')
+      }.should raise_exception ActiveRecord::RecordNotFound
+      
+      Structure.find_by_permalink!(@structure.slug).should == @structure
+    end
+  end
 end
