@@ -7,7 +7,7 @@
 
 server {
     listen   80;
-    server_name .<%= app_name %>.brainberry.com.ua;
+    server_name .<%= app_name %>.aimbulance.com;
 
     server_tokens off;
 
