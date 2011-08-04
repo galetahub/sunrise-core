@@ -56,7 +56,7 @@ module Manage::BaseHelper
     html_options[:class] ||= "new"
     
     content_tag(:div, 
-      link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), html_options),
+      link_to_function(name, raw("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), html_options),
       :class=>"add-bl")
   end
   
