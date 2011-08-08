@@ -22,7 +22,7 @@
         <div class="p-user-info">
           <div class="p-info">
             <%= link_to current_user.name, edit_manage_user_path(current_user), :class=>"p-name" %>
-            <%= link_to t('manage.exit'), destroy_user_session_path, :class=>"p-exit" %>
+            <%= link_to t('manage.exit'), destroy_user_session_path, :class=>"p-exit", :method => :delete %>
           </div>
         </div>
         <div class="p-user-foto">
