@@ -6,7 +6,7 @@
 	<%= tag(:meta, :content => render_description, :name=>"description") %>
 	<%= csrf_meta_tag %>
 	<title><%= render_title %></title>
-	<%= stylesheet_link_tag "application" %>
+	<%= stylesheet_link_tag "application", "alert" %>
 	<%= stylesheet_link_tag 'manage/panel.css', :media=> 'screen' if content_manager? %>
   <!--[if lte IE 6]><link href="/stylesheets/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
   <!--[if lte IE 7]><link href="/stylesheets/ie7.css" rel="stylesheet" type="text/css" /><![endif]-->  
