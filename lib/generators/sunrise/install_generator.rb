@@ -14,6 +14,8 @@ module Sunrise
       # copy images
       def copy_images
         directory "images/manage", "public/images/manage"
+        copy_file('images/alert.png', 'public/images/alert.png')
+        copy_file('images/cross_ico.png', 'public/images/cross_ico.png')
       end
       
       # copy javascripts

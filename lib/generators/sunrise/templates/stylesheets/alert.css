@@ -1,0 +1,26 @@
+.alert-container {
+  display: block;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+.alert {
+  background: url(/images/alert.png) no-repeat scroll left bottom transparent;
+  color: #FFFFFF;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 80px 20px 40px;
+  position: relative;
+  width: 790px;
+	text-align: center;
+}
+.alert .close {
+  display: block;
+  position: absolute;
+  right: 40px;
+  top: 12px;
+  z-index: 1000;
+}
