@@ -22,6 +22,7 @@ ru:
         kind: "Тип страницы"
         redirect_url: "Перенаправление (URL)"
         position: "Позиция"
+        slug: "URL"
       
       header:
         title: "Заглавие страницы"
