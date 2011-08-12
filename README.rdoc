@@ -41,6 +41,7 @@ It's run all dependent generators:
 
 * simple_form:install
 * sunrise:file_upload:install
+* ckeditor:install
 * devise:install
 
 === Configuration
