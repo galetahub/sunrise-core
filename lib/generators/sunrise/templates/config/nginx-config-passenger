@@ -1,10 +1,4 @@
-# You may add here your
-# server {
-#   ...
-# }
-# statements for each of your virtual hosts
-
-
+# <%= app_name %>
 server {
     listen   80;
     server_name .<%= app_name %>.aimbulance.com;
@@ -35,7 +29,6 @@ server {
 
     passenger_enabled on;
     rails_env production;
-#    rack_env production;
 
     root    <%= app_path %>/public;
 
@@ -47,5 +40,21 @@ server {
     {
         expires 12h;
         add_header  Cache-Control  private;
+        access_log off;
+    }
+    
+    # This rewrites all the requests to the maintenance.html page if it exists in the doc root.
+    if (-f $document_root/system/maintenance.html) {
+      return 503;
+    }
+     
+    error_page 503 @503;
+    location @503 {
+      # Serve static assets if found.
+      if (-f $request_filename) {
+        break;
+      }
+     
+      rewrite ^(.*)$ /system/maintenance.html break;
     }
 }
