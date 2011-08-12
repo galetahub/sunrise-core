@@ -8,6 +8,7 @@
   gem "mysql2", "~> 0.2.11"
   
   gem 'inherited_resources'
+  gem 'has_scope'
   gem 'paperclip'
   gem 'mime-types'
   gem 'kaminari'

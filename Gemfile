@@ -6,7 +6,8 @@ gem "rails", "~> 3.0.9"
 platforms :ruby do
   gem 'nokogiri', '~> 1.5.0'
   gem 'inherited_resources', '~> 1.2.2'
-  gem 'paperclip', '~> 2.3.15'
+  gem "has_scope", "~> 0.5.1"
+  gem 'paperclip', '~> 2.3.16'
   gem 'mime-types', '~> 1.16'
   gem 'kaminari', '~> 0.12.4'
   gem 'cancan', '~> 1.6.5'
