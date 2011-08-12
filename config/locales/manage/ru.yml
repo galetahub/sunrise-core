@@ -224,6 +224,14 @@ ru:
     fileupload:
       button: "Выберите файл"
       max_size: "Макс. р."
+  
+  views:
+    pagination:
+      previous: "Предыдущая"
+      next: "Следующая"
+      truncate: "..."
+      last: "Последняя"
+      first: "Первая"
       
   flash:
     manage:      

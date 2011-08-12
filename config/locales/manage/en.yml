@@ -224,6 +224,14 @@ en:
     fileupload:
       button: "Select file"
       max_size: "Max size"
+  
+  views:
+    pagination:
+      previous: "Previous"
+      next: "Next"
+      truncate: "..."
+      last: "Last"
+      first: "First"
       
   flash:
     manage:      

@@ -224,6 +224,14 @@ uk:
     fileupload:
       button: "Оберіть файл"
       max_size: "Макс. р."
+  
+  views:
+    pagination:
+      previous: "Попередня"
+      next: "Наступна"
+      truncate: "..."
+      last: "Остання"
+      first: "Перша"
       
   flash:
     manage:      
