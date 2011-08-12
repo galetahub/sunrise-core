@@ -69,6 +69,7 @@ module Sunrise
         
         generate("simple_form:install")
         generate("sunrise:file_upload:install")
+        generate("ckeditor:install")
         generate("devise:install")
       end
       
@@ -87,6 +88,17 @@ module Sunrise
           
         in_root do
           inject_into_file 'config/application.rb', "    #{code}\n", { :after => sentinel, :verbose => false }
+        end
+      end
+      
+      def test_framework
+        log :test_framework, "rspec"
+        sentinel = /\.filter_parameters\s+\+=\s+\[\s+\:password\s+\]\s*$/
+        
+        code = "config.generators do |g|\n\tg.test_framework :rspec\nend"
+          
+        in_root do
+          inject_into_file 'config/application.rb', "    #{code}", { :after => sentinel, :verbose => false }
         end
       end
       
