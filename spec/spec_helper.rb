@@ -8,8 +8,8 @@ require 'database_cleaner'
 
 # Fixtures replacement with a straightforward definition syntax
 require 'factory_girl'
-Factory.definition_file_paths = [ File.expand_path("../factories/", __FILE__) ]
-Factory.find_definitions
+FactoryGirl.definition_file_paths = [ File.expand_path("../factories/", __FILE__) ]
+FactoryGirl.find_definitions
 
 ActionMailer::Base.delivery_method = :test
 ActionMailer::Base.perform_deliveries = true
@@ -55,3 +55,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
+# For generators
+require "generator_spec/test_case"
+require "generators/sunrise/install_generator"

@@ -10,8 +10,13 @@ describe User do
   end
     
   context "validations" do
-    it "should not be valid with invalid name" do
+    it "should not be valid with empty name" do
       @user.name = nil
+      @user.should_not be_valid
+    end
+    
+    it "should not be valid with empty email" do
+      @user.email = nil
       @user.should_not be_valid
     end
     

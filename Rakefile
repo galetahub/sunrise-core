@@ -13,6 +13,10 @@ require File.join(File.dirname(__FILE__), 'lib', 'sunrise', 'version')
 require 'rspec/core'
 require 'rspec/core/rake_task'
 
+# Clear tmp folder
+require "fileutils"
+FileUtils.rm_r "#{File.dirname(__FILE__)}/spec/tmp", :force => true 
+
 RSpec::Core::RakeTask.new(:spec) do |t|
   t.rspec_opts = ['--options', "spec/spec.opts"]
 end

@@ -67,12 +67,14 @@ module Sunrise
       end
       
       def dependent_generators
-        say_status("invoke dependent generators", "", :green)
-        
-        generate("simple_form:install")
-        generate("sunrise:file_upload:install")
-        generate("ckeditor:install")
-        generate("devise:install")
+        unless Rails.env.test?
+          say_status("invoke dependent generators", "", :green)
+          
+          generate("simple_form:install")
+          generate("sunrise:file_upload:install")
+          generate("ckeditor:install")
+          generate("devise:install")
+        end
       end
       
       # Add devise routes
@@ -95,13 +97,18 @@ module Sunrise
       
       def test_framework
         log :test_framework, "rspec"
-        sentinel = /\.filter_parameters\s+\+=\s+\[\s+\:password\s+\]\s*$/
+        sentinel = /\.filter_parameters\s+\+\=\s+\[(.+)\]\s*$/
         
-        code = "config.generators do |g|\n\tg.test_framework :rspec\nend"
+        code = "config.generators do |g|\n      g.test_framework :rspec\n    end"
           
         in_root do
-          inject_into_file 'config/application.rb', "    #{code}", { :after => sentinel, :verbose => false }
+          inject_into_file 'config/application.rb', "\n\n    #{code}", { :after => sentinel, :verbose => false }
         end
+      end
+      
+      def copy_specs
+        directory "spec", "spec"
+        copy_file('rspec', '.rspec')
       end
       
       def self.next_migration_number(dirname)

@@ -32,5 +32,6 @@ platforms :ruby do
     gem "database_cleaner"
     gem "factory_girl"
     gem "fuubar"
+    gem "generator_spec"
   end
 end

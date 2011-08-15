@@ -1,6 +1,7 @@
 pkg/
 Gemfile.lock
 .rspec
+spec/tmp
 spec/dummy/log/
 spec/dummy/tmp/
 spec/dummy/config/*.yml

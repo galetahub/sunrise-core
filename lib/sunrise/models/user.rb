@@ -18,7 +18,10 @@ module Sunrise
             before_validation :generate_login, :if => :has_login?
             before_create :set_default_role, :if => :roles_empty?
             
+            validates_presence_of :name
+            
             scope :with_email, lambda {|email| where(["email LIKE ?", "#{email}%"]) }
+            scope :with_name, lambda {|name| where(["name LIKE ?", "#{name}%"]) }
             scope :with_role, lambda {|role| joins(:roles).where(["`roles`.role_type = ?", role.id]) }
             scope :defaults, with_role(::RoleType.default)
             scope :moderators, with_role(::RoleType.moderator)
