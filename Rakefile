@@ -8,7 +8,6 @@ end
 
 require 'rake'
 require 'rdoc/task'
-require File.join(File.dirname(__FILE__), 'lib', 'sunrise', 'version')
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
@@ -30,23 +29,4 @@ RDoc::Task.new do |rdoc|
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
-end
-
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |s|
-    s.name = "sunrise-core"
-    s.version = Sunrise::VERSION.dup
-    s.summary = "Rails CMS"
-    s.description = "Sunrise is a Aimbulance CMS"
-    s.email = "galeta.igor@gmail.com"
-    s.homepage = "https://github.com/galetahub/sunrise-core"
-    s.authors = ["Igor Galeta", "Pavlo Galeta"]
-    s.files =  FileList["[A-Z]*", "{app,config,lib}/**/*"] - %w(Gemfile Gemfile.lock)
-    #s.extra_rdoc_files = FileList["[A-Z]*"]
-  end
-  
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler not available. Install it with: gem install jeweler"
 end
