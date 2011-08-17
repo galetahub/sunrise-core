@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<rails>, ["~> 3.0.10"])
   s.add_runtime_dependency(%q<nokogiri>, ["~> 1.5.0"])
   s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
-  s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.16"])
+  s.add_runtime_dependency(%q<carrierwave>, ["~> 0.5.7"])
   s.add_runtime_dependency(%q<mime-types>, ["~> 1.16"])
   s.add_runtime_dependency(%q<kaminari>, ["~> 0.12.4"])
   s.add_runtime_dependency(%q<cancan>, ["~> 1.6.5"])
