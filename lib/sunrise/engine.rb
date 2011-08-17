@@ -19,6 +19,7 @@ module Sunrise
       ActiveSupport.on_load :active_record do
         ActiveRecord::Base.send :include, Sunrise::Utils::Mysql
         ActiveRecord::Base.send :include, Sunrise::Utils::AccessibleAttributes
+        ActiveRecord::Base.send :include, Sunrise::CarrierWave::Glue
       end
       
       ActiveSupport.on_load :action_controller do

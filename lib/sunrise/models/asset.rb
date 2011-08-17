@@ -15,7 +15,7 @@ module Sunrise
             belongs_to :user
             belongs_to :assetable, :polymorphic => true
     
-            before_validation :make_content_type
+            #before_validation :make_content_type
             before_create :read_dimensions
             
             delegate :url, :original_filename, :content_type, :size, :path, :styles, :to => :data
@@ -73,29 +73,9 @@ module Sunrise
         end
         
         def image?
-          Sunrise::Utils::IMAGE_TYPES.include?(content_type)
+          Sunrise::Utils::IMAGE_TYPES.include?(self.data_content_type)
         end
         
-        def geometry
-          @geometry ||= Paperclip::Geometry.from_file(data.to_file)
-          @geometry
-        end
-        
-        protected
-        
-          def read_dimensions
-            if image? && has_dimensions?
-              self.width = geometry.width
-              self.height = geometry.height
-            end
-          end
-          
-          def make_content_type
-            if filename && (data_content_type.blank? || data_content_type == "application/octet-stream")
-              content_types = MIME::Types.type_for(filename)
-              self.data_content_type = content_types.first.to_s unless content_types.empty?
-            end
-          end
       end
     end
   end

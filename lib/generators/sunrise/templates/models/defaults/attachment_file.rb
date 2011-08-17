@@ -25,9 +25,7 @@
 #
 
 class AttachmentFile < Asset
-  has_attached_file :data,
-                    :url => "/assets/attachments/:id/:filename",
-                    :path => ":rails_root/public/assets/attachments/:id/:filename"
-  
-  validates_attachment_size :data, :less_than => 100.megabytes
+  validates :data, :file_size => { :maximum => 100.megabytes.to_i }
+	
+	sunrise_uploader AttachmentFileUploader
 end

@@ -33,6 +33,11 @@ module Sunrise
         directory "views", "app/views"
       end
       
+      # copy uploaders
+      def copy_uploaders
+        directory "uploaders", "app/uploaders"
+      end
+      
       def copy_configurations
         copy_file('config/seeds.rb', 'db/seeds.rb')
         copy_file('config/sunrise.rb', 'config/initializers/sunrise.rb')

@@ -273,3 +273,11 @@ uk:
         update:
           success: "Сторінка успішно збережено"
           failure: "Виникли помилки при збереженні даних"
+          
+  errors:
+    messages:
+      wrong_size: "неправильний розмір (повинно бути %{file_size})"
+      size_too_small: "занадто маленький розмір (повинно бути не менше %{file_size})"
+      size_too_big: "занадто великий розмір (повинно бути не більше %{file_size})"
+      carrierwave_processing_error: 'Неможливо переконвертувати'
+      carrierwave_integrity_error: 'Не є картинкою'

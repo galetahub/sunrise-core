@@ -22,14 +22,10 @@
 #  index_assets_on_user_id                                   (user_id)
 #
 
-class Picture < Asset
-  has_attached_file :data,
-                    :url  => "/assets/pictures/:id/:style_:basename.:extension",
-                    :path => ":rails_root/public/assets/pictures/:id/:style_:basename.:extension",
-                    :convert_options => { :all => "-strip" },
-	                  :styles => { :content => '575>', :thumb => '80x80#' }
+class Picture < Asset		
+	validates :data, :file_size => { :maximum => 2.megabytes.to_i }
+	validates :data_content_type, :exclusion => {:in => Sunrise::Utils::IMAGE_TYPES }
+	validates_integrity_of :data
 	
-	validates_attachment_presence :data
-	validates_attachment_size :data, :less_than => 2.megabytes
-	validates_attachment_content_type :data, :content_type => Sunrise::Utils::IMAGE_TYPES
+	sunrise_uploader PictureUploader
 end

@@ -30,6 +30,12 @@ module Sunrise
     autoload :Depth, 'sunrise/nested_set/depth'
   end
   
+  module CarrierWave
+    autoload :Glue, 'sunrise/carrier_wave/glue'
+    autoload :BaseUploader, 'sunrise/carrier_wave/base_uploader'
+    autoload :FileSizeValidator, 'sunrise/carrier_wave/file_size_validator'
+  end
+  
   # Custom flash_keys
   mattr_accessor :flash_keys
   @@flash_keys = [ :success, :failure ]

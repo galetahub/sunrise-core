@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc"]
   s.require_paths = ["lib"]
   
-  s.add_runtime_dependency(%q<rails>, ["~> 3.0.9"])
+  s.add_runtime_dependency(%q<rails>, ["~> 3.0.10"])
   s.add_runtime_dependency(%q<nokogiri>, ["~> 1.5.0"])
   s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
   s.add_runtime_dependency(%q<paperclip>, ["~> 2.3.16"])
