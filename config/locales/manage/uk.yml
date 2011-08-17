@@ -226,6 +226,13 @@ uk:
       button: "Оберіть файл"
       max_size: "Макс. р."
   
+    icons:
+      down: "Опустити вниз"
+      up: "Підняти вгору"
+      edit: "Редагувати"
+      settings: "Установки"
+      delete: "Видалити"
+  
   views:
     pagination:
       previous: "Попередня"
@@ -233,7 +240,7 @@ uk:
       truncate: "..."
       last: "Остання"
       first: "Перша"
-      
+  
   flash:
     manage:      
       actions:

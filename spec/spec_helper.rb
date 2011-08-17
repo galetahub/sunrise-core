@@ -1,6 +1,15 @@
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 
+# Copy helpers
+require 'fileutils'
+dest = File.join(File.dirname(__FILE__), 'dummy/app/helpers/manage')
+FileUtils.rm_r(dest, :force => true)
+FileUtils.mkdir_p(dest)
+
+source = File.expand_path("../../lib/generators/sunrise/templates/helpers/manage", __FILE__)
+FileUtils.cp(Dir[File.join(source, "*.rb")], dest)
+
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 require "rspec/rails"

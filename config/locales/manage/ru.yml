@@ -225,6 +225,13 @@ ru:
     fileupload:
       button: "Выберите файл"
       max_size: "Макс. р."
+      
+    icons:
+      down: "Опустить вниз"
+      up: "Поднять вверх"
+      edit: "Редактировать"
+      settings: "Настройки"
+      delete: "Удалить"
   
   views:
     pagination:

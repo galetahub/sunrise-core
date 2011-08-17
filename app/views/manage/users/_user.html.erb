@@ -1,11 +1,11 @@
 <%= content_tag(:div, :id=>dom_id(user), :class=>"dinamic-bl #{user.state}") do %>
   <div class="act-bl" style="display:none;">
     <% if can? :update, user, :context => :manage %>
-      <%= link_to image_tag("manage/ico_edit.gif", :title=>t('manage.edit')), edit_manage_user_path(:id=>user.id), :class=>"icons" %>
+      <%= link_to manage_icon("edit"), edit_manage_user_path(:id=>user.id), :class=>"icons" %>
     <% end %>
     
     <% if can? :delete, user, :context => :manage %>
-      <%= link_to image_tag("manage/ico_del.gif", :title=>t('manage.delete')), manage_user_path(:id=>user.id), 
+      <%= link_to manage_icon("delete"), manage_user_path(:id=>user.id), 
             :method=>:delete, :confirm=>t("manage.confirm_delete"), :class=>"icons" %>
     <% end %>
   </div>

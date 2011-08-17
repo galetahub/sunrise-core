@@ -225,6 +225,13 @@ en:
     fileupload:
       button: "Select file"
       max_size: "Max size"
+    
+    icons:
+      down: "Down"
+      up: "Up"
+      edit: "Edit"
+      settings: "Settings"
+      delete: "Delete"
   
   views:
     pagination:

@@ -14,3 +14,4 @@ spec/dummy/public/cache/
 spec/dummy/public/assets/
 spec/dummy/public/ckeditor_assets/
 spec/dummy/vendor/bundle/
+spec/dummy/app/helpers/manage

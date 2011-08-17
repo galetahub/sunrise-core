@@ -16,10 +16,7 @@ module Manage::BaseHelper
 	end
 	
 	def options_for_ckeditor(options = {})
-	  {:width=>700, :height=>400, 
-	   :swf_params=>{:assetable_type=>current_user.class.name, :assetable_id=>current_user.id}
-	     
-	  }.update(options)
+	  { :width => 860, :height => 400 }.merge(options)
 	end
 	
 	def white_block_form(options = {}, &block)
@@ -59,7 +56,7 @@ module Manage::BaseHelper
     html_options[:class] ||= "new"
     
     content_tag(:div, 
-      link_to_function(name, h("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), html_options),
+      link_to_function(name, raw("insert_fields(this, \"#{method}\", \"#{escape_javascript(fields)}\")"), html_options),
       :class=>"add-bl")
   end
   
@@ -77,5 +74,10 @@ module Manage::BaseHelper
     key = options[:id]
     options[:style] = "display:none;" if !cookies[key].blank? && cookies[key].to_i != 1
     content_tag(tag_name, options, &block)
+  end
+  
+  def manage_icon(image, options = {})
+    options = { :alt => t(image, :scope => 'manage.icons'), :title => t(image, :scope => 'manage.icons') }.merge(options)
+    image_tag("manage/ico_#{image}.gif", options)
   end
 end

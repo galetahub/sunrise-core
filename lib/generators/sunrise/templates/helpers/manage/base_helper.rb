@@ -75,4 +75,9 @@ module Manage::BaseHelper
     options[:style] = "display:none;" if !cookies[key].blank? && cookies[key].to_i != 1
     content_tag(tag_name, options, &block)
   end
+  
+  def manage_icon(image, options = {})
+    options = { :alt => t(image, :scope => 'manage.icons'), :title => t(image, :scope => 'manage.icons') }.merge(options)
+    image_tag("manage/ico_#{image}.gif", options)
+  end
 end
