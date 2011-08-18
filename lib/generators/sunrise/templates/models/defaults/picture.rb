@@ -23,9 +23,9 @@
 #
 
 class Picture < Asset		
-	validates :data, :file_size => { :maximum => 2.megabytes.to_i }
-	validates :data_content_type, :exclusion => {:in => Sunrise::Utils::IMAGE_TYPES }
+  sunrise_uploader PictureUploader
+
+	validates :data_content_type, :inclusion => {:in => Sunrise::Utils::IMAGE_TYPES }
 	validates_integrity_of :data
-	
-	sunrise_uploader PictureUploader
+	validates_filesize_of :data, :maximum => 2.megabytes.to_i
 end

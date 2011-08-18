@@ -1,5 +1,4 @@
 # encoding: utf-8
-require 'mime/types'
 
 module Sunrise
   module Models
@@ -16,9 +15,9 @@ module Sunrise
             belongs_to :assetable, :polymorphic => true
     
             #before_validation :make_content_type
-            before_create :read_dimensions
+            #before_create :read_dimensions
             
-            delegate :url, :original_filename, :content_type, :size, :path, :styles, :to => :data
+            delegate :url, :original_filename, :to => :data
             alias :filename :original_filename
           end
         end
@@ -31,7 +30,7 @@ module Sunrise
       module InstanceMethods
         
         def thumb_url
-          url(:thumb)
+          data.thumb.url
         end
         
         def format_created_at
@@ -44,15 +43,7 @@ module Sunrise
           options[:procs] ||= Proc.new do |options, record| 
             options[:builder].tag!('filename', filename)
             options[:builder].tag!('path', url)
-            options[:builder].tag!('size', size)
-            
-            unless styles.empty?
-              options[:builder].tag!('styles') do |xml|
-                styles.each do |style|
-                  xml.tag!(style.first, url(style.first))
-                end
-              end
-            end
+            options[:builder].tag!('size', data_file_size)
           end
           
           super
@@ -60,9 +51,9 @@ module Sunrise
         
         def as_json(options = nil)
           options = {
-            :only => [:id, :guid, :assetable_id, :assetable_type, :user_id], 
-            :root => 'asset', 
-            :methods => [:filename, :url, :size, :content_type, :thumb_url]
+            :only => [:id, :guid, :assetable_id, :assetable_type, :user_id, :data_file_size, :data_content_type], 
+            :root => 'asset',
+            :methods => [:filename, :url, :thumb_url]
           }.merge(options || {})
           
           super

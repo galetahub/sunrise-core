@@ -25,7 +25,7 @@
 #
 
 class AttachmentFile < Asset
-  validates :data, :file_size => { :maximum => 100.megabytes.to_i }
-	
-	sunrise_uploader AttachmentFileUploader
+  sunrise_uploader AttachmentFileUploader
+  
+  validates_filesize_of :data, :maximum => 100.megabytes.to_i
 end

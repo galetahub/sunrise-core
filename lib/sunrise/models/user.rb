@@ -121,7 +121,7 @@ module Sunrise
         
         def avatar_small_url
           if self.avatar
-            self.avatar.url(:small)
+            self.avatar.data.small.url
           else
             "/images/manage/user_pic_small.gif"
           end

@@ -25,9 +25,10 @@
 #
 
 class Avatar < Asset
-	validates :data, :file_size => { :maximum => 1.megabyte.to_i }
-	validates :data_content_type, :exclusion => {:in => Sunrise::Utils::IMAGE_TYPES }
+  sunrise_uploader AvatarUploader  
+  
+	validates :data_content_type, :inclusion => {:in => Sunrise::Utils::IMAGE_TYPES }
 	validates_integrity_of :data
-	
-	sunrise_uploader AvatarUploader
+	validates_filesize_of :data, :maximum => 1.megabytes.to_i
+
 end

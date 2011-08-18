@@ -12,6 +12,12 @@ module Sunrise
           options = { :mount_on => :data_file_name }.merge(options)
           
           mount_uploader(:data, uploader, options, &block)
+          
+          validates_processing_of :data
+        end
+        
+        def validates_filesize_of(*attr_names)
+          validates_with FileSizeValidator, _merge_attributes(attr_names)
         end
       end
       

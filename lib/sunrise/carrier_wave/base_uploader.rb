@@ -1,9 +1,10 @@
 # encoding: utf-8
+require 'mime/types'
 
 module Sunrise
   module CarrierWave
-    class BaseUploader < CarrierWave::Uploader::Base
-      include CarrierWave::MiniMagick
+    class BaseUploader < ::CarrierWave::Uploader::Base
+      include ::CarrierWave::MiniMagick
             
       storage :file
       
@@ -13,7 +14,7 @@ module Sunrise
        
       # default store assets path 
       def store_dir
-        "uploads/#{model.class.to_s.underscore}/#{model.id.to_s}"
+        "uploads/#{model.class.to_s.underscore}/#{model.id}"
       end
        
       # process :strip
@@ -39,7 +40,7 @@ module Sunrise
       end
       
       def set_content_type
-        type = file.content_type == 'application/octet-stream' || file.content_type.blank?  ? File.mime_type?(original_filename) : file.content_type
+        type = file.content_type == 'application/octet-stream' || file.content_type.blank? ? MIME::Types.type_for(original_filename).first.to_s : file.content_type
          
         model.data_content_type = type
       end 

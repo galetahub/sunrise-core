@@ -13,7 +13,7 @@ module Dummy
   class Application < Rails::Application
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
-    config.autoload_paths += %W(#{config.root}/../../lib/generators/sunrise/templates/models/defaults)
+    config.autoload_paths += %W(#{config.root}/../../lib/generators/sunrise/templates/models/defaults #{config.root}/../../lib/generators/sunrise/templates/uploaders)
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.

@@ -8,6 +8,7 @@ platforms :ruby do
   gem 'inherited_resources', '~> 1.2.2'
   gem "has_scope", "~> 0.5.1"
   gem 'carrierwave', '~> 0.5.7'
+  gem 'mini_magick'
   gem 'mime-types', '~> 1.16'
   gem 'kaminari', '~> 0.12.4'
   gem 'cancan', '~> 1.6.5'
