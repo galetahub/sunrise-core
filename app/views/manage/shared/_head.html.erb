@@ -20,7 +20,7 @@
     <div class="user-info">
       <div class="info">
         <%= link_to current_user.name, edit_manage_user_path(current_user), :class=>"name" %>
-        <%= link_to t('manage.exit'), destroy_user_session_path, :class=>"exit" %>
+        <%= link_to t('manage.exit'), destroy_user_session_path, :class=>"exit", :method => :delete %>
       </div>
     </div>
     

@@ -1,7 +1,7 @@
 def insert_user  
   User.truncate_table
   Role.truncate_table
-  password = Devise.friendly_token
+  password = Rails.env.production? ? Devise.friendly_token : (1..9).to_a.join
   
   admin = User.new(:name=>'Administrator', :email=>'dev@aimbulance.com',
                    :password=>password, :password_confirmation=>password)
