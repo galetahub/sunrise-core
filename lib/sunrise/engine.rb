@@ -3,6 +3,7 @@ require 'awesome_nested_set'
 require 'inherited_resources'
 require 'sunrise-core'
 require 'sunrise-file-upload'
+require "carrierwave"
 
 module Sunrise
   class Engine < ::Rails::Engine
