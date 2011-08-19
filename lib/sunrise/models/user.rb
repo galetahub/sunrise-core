@@ -22,10 +22,10 @@ module Sunrise
             
             scope :with_email, lambda {|email| where(["email LIKE ?", "#{email}%"]) }
             scope :with_name, lambda {|name| where(["name LIKE ?", "#{name}%"]) }
-            scope :with_role, lambda {|role| joins(:roles).where(["`roles`.role_type = ?", role.id]) }
-            scope :defaults, with_role(::RoleType.default)
-            scope :moderators, with_role(::RoleType.moderator)
-            scope :admins, with_role(::RoleType.admin)            
+            scope :with_role, lambda {|role_id| joins(:roles).merge(::Role.with_type(role_id)) }
+            scope :defaults, with_role(::RoleType.default.id)
+            scope :moderators, with_role(::RoleType.moderator.id)
+            scope :admins, with_role(::RoleType.admin.id)            
           end
         end
         

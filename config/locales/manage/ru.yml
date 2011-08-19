@@ -12,6 +12,7 @@ ru:
         about: "О себе"
         remember_me: "Запомнить меня"
         role_type_id: "Тип пользователя"
+        role: "Тип пользователя"
       
       structure:
         title: "Название"

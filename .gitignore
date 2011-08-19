@@ -2,7 +2,7 @@ pkg/
 Gemfile.lock
 .rspec
 spec/tmp
-spec/dummy/log/
+spec/dummy/log/*.log
 spec/dummy/tmp/
 spec/dummy/config/*.yml
 spec/dummy/config/*.conf
@@ -16,3 +16,5 @@ spec/dummy/public/ckeditor_assets/
 spec/dummy/public/uploads/
 spec/dummy/vendor/bundle/
 spec/dummy/app/helpers/manage
+spec/dummy/config/database.yml
+spec/dummy/log/development.log

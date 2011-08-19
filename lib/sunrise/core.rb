@@ -3,7 +3,6 @@ require 'sunrise/core_ext'
 
 module Sunrise
   autoload :SystemSettings, 'sunrise/system_settings'
-  autoload :ModelFilter, 'sunrise/model_filter'  
   autoload :Plugins, 'sunrise/plugins'
   autoload :Plugin, 'sunrise/plugin'
   autoload :Utils, 'sunrise/utils'
@@ -18,6 +17,8 @@ module Sunrise
   
   module Controllers
     autoload :HeadOptions, 'sunrise/controllers/head_options'
+    autoload :ModelFilter, 'sunrise/controllers/model_filter'
+    autoload :Manage, 'sunrise/controllers/manage'
   end
   
   module Views

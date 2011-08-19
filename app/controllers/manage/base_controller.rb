@@ -1,9 +1,5 @@
 class Manage::BaseController < ApplicationController
-  before_filter :authenticate_user!
-  check_authorization
-  
-  layout "manage"
-  respond_to :html
+  include Sunrise::Controllers::Manage
   
   protected
   
@@ -16,9 +12,5 @@ class Manage::BaseController < ApplicationController
         format.xml  { head :unauthorized }
         format.js   { head :unauthorized }
       end
-    end
-    
-    def current_ability
-      @current_ability ||= ::Ability.new(current_user, :manage)
     end
 end

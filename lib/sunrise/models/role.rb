@@ -14,6 +14,8 @@ module Sunrise
         
             enumerated_attribute :role_type, :id_attribute => :role_type
             attr_accessible :role_type
+            
+            scope :with_type, lambda { |role_type| where(:role_type => role_type) } 
           end
         end
       end

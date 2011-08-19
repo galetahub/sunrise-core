@@ -12,6 +12,7 @@ uk:
         about: "Про себе"
         remember_me: "Запам'ятати мене"
         role_type_id: "Тип користувача"
+        role: "Тип користувача"
       
       structure:
         title: "Назва"

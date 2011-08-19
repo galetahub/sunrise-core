@@ -5,12 +5,16 @@
     <%= t('manage.model_filter.total_count') %>: <%= @users.total_count %>
     
     <%= cookie_content_tag(:div, :id=>"block_filter", :class=>"filt") do %>
-      <%= form_for @search, :as => :search, :url=>manage_users_path, :html=>{:method=>:get} do |f| %>
-        <%= f.label :email, t('activerecord.attributes.user.email') %>
-        <%= f.text_field :email, :class=>"text" %>
+      <%= form_for search_filter, :url => manage_users_path, :html =>{ :method => :get } do |f| %>
         
-        <%= f.label :name, t('activerecord.attributes.user.name') %>
-        <%= f.text_field :name, :class=>"text" %>
+        <% controller.scopes_configuration.each do |key, value| %>
+          <% next if [:with_role].include?(key) %>
+          <%= f.label value[:as], t(value[:as], :scope => "activerecord.attributes.user") %>
+          <%= f.text_field value[:as], :class => "text", :name => value[:as] %>
+        <% end %>
+        
+        <%= f.label :role, t(:role, :scope => "activerecord.attributes.user") %>
+        <%= f.collection_select :role, RoleType.all, :id, :title, {:include_blank => true}, {:name => "role"} %>
         
         <div class="buts">
           <%= content_tag(:button, :value => "search", :type => "submit", :name => "commit", :class => "gr cupid-green") do %>
@@ -25,13 +29,12 @@
   
   <div class="sort">
   	<label><%= t('manage.sort') %></label>
-    <div class="select-input"><%= link_to_function t("manage.users.sort.#{@search.order_column}_#{@search.order_type}"), "SelectList.toggle(event)", :class=>"corn", :id=>'sort_select' %></div>
+    <div class="select-input"><%= link_to_function t(search_filter.current_order, :scope => "manage.users.sort"), "SelectList.toggle(event)", :class=>"corn", :id=>'sort_select' %></div>
     <div id='sort_select_list' class="select-list" style='display:none;'>
-      <%= link_to_sort(t('manage.users.sort.created_at_desc'),:name=>"created_at", :order_type=>'desc') %>
-      <%= link_to_sort(t('manage.users.sort.created_at_asc'), :name=>"created_at", :order_type=>'asc') %>
-      
-      <%= link_to_sort(t('manage.users.sort.name_desc'), :name=>"name", :order_type=>'desc') %>
-      <%= link_to_sort(t('manage.users.sort.name_asc'), :name=>"name", :order_type=>'asc') %>
+      <% controller.orders_configuration.each do |key, value| %>
+        <%= link_to_sort(t("#{key}_desc", :scope => "manage.users.sort"), :name => key, :order_type=>'desc') %>
+        <%= link_to_sort(t("#{key}_asc", :scope => "manage.users.sort"), :name => key, :order_type=>'asc') %>
+      <% end %>
     </div>
   </div>
   <div class="sort">

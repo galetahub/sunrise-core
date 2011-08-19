@@ -4,10 +4,17 @@ class Manage::UsersController < Manage::BaseController
   
   load_and_authorize_resource  
   
-  before_filter :make_filter, :only=>[:index]
   before_filter :check_params, :only => [:create, :update]
   
-  respond_to :json, :csv, :only => [:index]
+  with_options :only => [:index] do |i|
+    i.respond_to :json, :csv
+    
+    i.has_scope :with_name, :as => :name
+    i.has_scope :with_email, :as => :email
+    i.has_scope :with_role, :as => :role
+  end
+  
+  order_by :name, :created_at
 
   def index
     index! do |format|
@@ -59,12 +66,7 @@ class Manage::UsersController < Manage::BaseController
   protected
     
     def collection
-      @users = (@users || end_of_association_chain).merge(@search.scoped).includes(:avatar).page(params[:page])
-    end
-    
-    def make_filter
-      @search = Sunrise::ModelFilter.new(User, :attributes=>[:name, :email])
-      @search.update_attributes(params[:search])
+      @users = (@users || end_of_association_chain).order(search_filter.order).includes(:avatar).page(params[:page])
     end
     
     def check_params

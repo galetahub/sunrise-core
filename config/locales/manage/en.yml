@@ -12,6 +12,7 @@ en:
         about: "About"
         remember_me: "Remember me"
         role_type_id: "Role type"
+        role: "Role type"
       
       structure:
         title: "Name"
