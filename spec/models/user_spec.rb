@@ -41,7 +41,7 @@ describe User do
     end
     
     it "should search users by role" do
-      User.with_role(::RoleType.default).all.should include(@user)
+      User.with_role(::RoleType.default.id).all.should include(@user)
     end
     
     it "export users in csv format" do
