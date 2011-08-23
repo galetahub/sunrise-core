@@ -1,5 +1,6 @@
 # encoding: utf-8
 require 'mime/types'
+require 'mini_magick'
 
 module Sunrise
   module CarrierWave
@@ -51,8 +52,8 @@ module Sunrise
       
       def set_width_and_height
         if model.image? && model.has_dimensions?
-          magick = ::Magick::Image.read(current_path).first
-          model.width, model.height = magick.columns, magick.rows
+          magick = ::MiniMagick::Image.new(current_path)
+          model.width, model.height = magick[:width], magick[:height]
         end
       end
 
