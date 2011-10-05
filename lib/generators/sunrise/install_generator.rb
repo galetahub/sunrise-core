@@ -13,19 +13,21 @@ module Sunrise
       
       # copy images
       def copy_images
-        directory "images/manage", "public/images/manage"
-        copy_file('images/alert.png', 'public/images/alert.png')
-        copy_file('images/cross_ico.png', 'public/images/cross_ico.png')
+        #directory "images/manage", "public/images/manage"
+        #copy_file('images/alert.png', 'public/images/alert.png')
+        #copy_file('images/cross_ico.png', 'public/images/cross_ico.png')
       end
       
       # copy javascripts
       def copy_javascripts
-        directory "javascripts", "public/javascripts"
+        #directory "javascripts", "public/javascripts"
       end
       
       # copy stylesheets
       def copy_stylesheets
-        directory "stylesheets", "public/stylesheets"
+        directory "stylesheets/fancybox", "app/assets/stylesheets/fancybox"
+        copy_file('stylesheets/alert.css', 'app/assets/stylesheets/alert.css')
+        #copy_file('stylesheets/application.css', 'app/assets/stylesheets/application.css')
       end
       
       # copy views
@@ -59,7 +61,7 @@ module Sunrise
       
       def download_rails_js
         say_status("fetching rails.js", "", :green)
-        get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javascripts/rails.js"
+        get "https://github.com/rails/jquery-ujs/raw/master/src/rails.js", "app/assets/javascripts/rails.js"
       end
       
       # copy migration files

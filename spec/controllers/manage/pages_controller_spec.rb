@@ -4,8 +4,8 @@ describe Manage::PagesController do
   render_views
   
   before(:all) do
-    @root = Factory.create(:structure_main)
-    @structure = Factory.create(:structure_page, :parent => @root)
+    @root = FactoryGirl.create(:structure_main)
+    @structure = FactoryGirl.create(:structure_page, :parent => @root)
   end
   
   context "administrator" do
@@ -19,13 +19,13 @@ describe Manage::PagesController do
     
     it "should create new page" do
       lambda {
-        post :create, :structure_id => @structure.id, :page => Factory.attributes_for(:page)
+        post :create, :structure_id => @structure.id, :page => FactoryGirl.attributes_for(:page)
       }.should change { Page.count }.by(1)
     end
         
     context "exists page" do
       before(:each) do
-        @page = Factory.create(:page, :structure => @structure)
+        @page = FactoryGirl.create(:page, :structure => @structure)
       end
       
       it "should call edit action" do
@@ -58,7 +58,7 @@ describe Manage::PagesController do
     
     context "with exists page" do
       before(:each) do
-        @page = Factory.create(:page, :structure => @structure)
+        @page = FactoryGirl.create(:page, :structure => @structure)
       end
       
       it "should not render edit action" do

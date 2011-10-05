@@ -4,8 +4,8 @@ describe Manage::StructuresController do
   render_views
   
   before(:all) do
-    @root = Factory.create(:structure_main)
-    @page = Factory.create(:structure_page, :parent => @root)
+    @root = FactoryGirl.create(:structure_main)
+    @page = FactoryGirl.create(:structure_page, :parent => @root)
   end
   
   context "administrator" do
@@ -26,13 +26,13 @@ describe Manage::StructuresController do
     
     it "should create new structure" do
       lambda {
-        post :create, :structure => Factory.attributes_for(:structure_page).merge(:parent_id => @root.id)
+        post :create, :structure => FactoryGirl.attributes_for(:structure_page).merge(:parent_id => @root.id)
       }.should change { @root.children.count }.by(1)
     end
         
     context "exists structure" do
       before(:each) do
-        @structure = Factory.create(:structure_page, :parent => @root)
+        @structure = FactoryGirl.create(:structure_page, :parent => @root)
       end
       
       it "should render edit action" do
@@ -75,7 +75,7 @@ describe Manage::StructuresController do
     
     context "with exists structure" do
       before(:each) do
-        @structure = Factory.create(:structure_page, :parent => @root)
+        @structure = FactoryGirl.create(:structure_page, :parent => @root)
       end
       
       it "should not render edit action" do

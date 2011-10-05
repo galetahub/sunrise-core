@@ -7,7 +7,7 @@ describe Manage::UsersController do
     login_admin
     
     before(:each) do
-      @attrs = Factory.attributes_for(:default_user)
+      @attrs = FactoryGirl.attributes_for(:default_user)
     end
     
     it "should render new action" do
@@ -35,7 +35,7 @@ describe Manage::UsersController do
     
     context "exists default user" do
       before(:each) do
-        @user = Factory.create(:default_user)
+        @user = FactoryGirl.create(:default_user)
       end
       
       it "should render index action" do
@@ -126,7 +126,7 @@ describe Manage::UsersController do
     
     context "with exists user" do
       before(:each) do
-        @user = Factory.create(:default_user)
+        @user = FactoryGirl.create(:default_user)
       end
       
       it "should not render edit action" do

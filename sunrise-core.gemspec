@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.extra_rdoc_files = ["README.rdoc"]
   s.require_paths = ["lib"]
   
-  s.add_runtime_dependency(%q<rails>, ["~> 3.0.10"])
+  s.add_runtime_dependency(%q<rails>, ["~> 3.1.0"])
   s.add_runtime_dependency(%q<nokogiri>, ["~> 1.5.0"])
   s.add_runtime_dependency(%q<inherited_resources>, ["~> 1.2.2"])
   s.add_runtime_dependency(%q<carrierwave>, ["~> 0.5.7"])
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<kaminari>, ["~> 0.12.4"])
   s.add_runtime_dependency(%q<cancan>, ["~> 1.6.5"])
   s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.3"])
-  s.add_runtime_dependency(%q<devise>, ["~> 1.4.2"])
+  s.add_runtime_dependency(%q<devise>, ["~> 1.4.7"])
   s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.2"])
   s.add_runtime_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
   s.add_runtime_dependency(%q<fastercsv>, ["~> 1.5.4"])
@@ -37,9 +37,9 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<sunrise-file-upload>, ["~> 0.1.2"])
   
   s.add_development_dependency(%q<rspec-rails>, ["= 2.6.1"])
-  s.add_development_dependency(%q<mysql2>, ["~> 0.2.10"])
+  s.add_development_dependency(%q<mysql2>, ["~> 0.3.7"])
   s.add_development_dependency(%q<capybara>, ["~> 1.0.0"])
   s.add_development_dependency(%q<database_cleaner>, [">= 0"])
-  s.add_development_dependency(%q<factory_girl>, [">= 0"])
+  s.add_development_dependency(%q<factory_girl>, ["~> 2.1.2"])
   s.add_development_dependency(%q<fuubar>, [">= 0"])
 end

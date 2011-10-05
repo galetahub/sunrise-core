@@ -53,7 +53,7 @@ describe Manage::AssetsController do
     
     context "with avatar" do
       before(:each) do
-        @avatar = Factory.create(:asset_avatar)
+        @avatar = FactoryGirl.create(:asset_avatar)
       end
       
       it "should not render destroy action" do

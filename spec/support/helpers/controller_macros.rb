@@ -1,7 +1,7 @@
 module ControllerMacros
   def login_admin
     before(:all) do
-      @admin = Factory.create(:admin_user)
+      @admin = FactoryGirl.create(:admin_user)
     end
     
     before(:each) do
@@ -12,7 +12,7 @@ module ControllerMacros
   
   def login_default
     before(:all) do
-      @user = Factory.create(:default_user)
+      @user = FactoryGirl.create(:default_user)
     end
     
     before(:each) do
@@ -23,7 +23,7 @@ module ControllerMacros
   
   def login_redactor
     before(:all) do
-      @user = Factory.create(:redactor_user)
+      @user = FactoryGirl.create(:redactor_user)
     end
     
     before(:each) do

@@ -4,9 +4,9 @@ describe PagesController do
   render_views
   
   before(:all) do
-    @root = Factory.create(:structure_main)
-    @structure = Factory.create(:structure_page, :parent => @root)
-    @page = Factory.create(:page, :structure => @structure)
+    @root = FactoryGirl.create(:structure_main)
+    @structure = FactoryGirl.create(:structure_page, :parent => @root)
+    @page = FactoryGirl.create(:page, :structure => @structure)
   end
   
   context "anonymous user" do
