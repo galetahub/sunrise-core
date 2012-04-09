@@ -4,7 +4,7 @@
 
 === Include gems:
   
-  gem "rails", "~> 3.0.10"
+  gem "rails", "~> 3.0.11"
   gem "mysql2", "~> 0.2.13"
   
   gem 'inherited_resources'
@@ -15,17 +15,17 @@
   gem 'kaminari'
   gem 'cancan'
   gem 'cancan_namespace'
-  gem 'devise'
+  gem 'devise', '~> 1.4.2'
   gem 'simple_form'
-  gem 'awesome_nested_set'
+  gem 'awesome_nested_set', '~> 2.0.1'
   gem 'fastercsv'
   gem 'ckeditor'
   
   gem 'galetahub-enum_field', '~> 0.1.4', :require => 'enum_field'
   gem 'galetahub-salty_slugs', '~> 1.0.0', :require => 'salty_slugs'
 
-  gem "sunrise-cms"
-  gem "sunrise-file-upload"
+  gem "sunrise-cms", '~> 0.2.0'
+  gem "sunrise-file-upload", "~> 0.1.2"
   
   group :test, :development do
     gem "rspec-rails", "~> 2.6.1"
