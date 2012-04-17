@@ -13,7 +13,7 @@ platforms :ruby do
   gem 'kaminari', '~> 0.12.4'
   gem 'cancan', '~> 1.6.5'
   gem 'cancan_namespace', '~> 0.1.3'
-  gem 'devise', '~> 1.4.2'
+  gem 'devise', '~> 1.5.3'
   gem 'simple_form', '~> 1.4.2'
   gem 'awesome_nested_set', '~> 2.0.1'
   gem "fastercsv", "~> 1.5.4"
