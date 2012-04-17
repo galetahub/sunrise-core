@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<kaminari>, ["~> 0.12.4"])
   s.add_runtime_dependency(%q<cancan>, ["~> 1.6.5"])
   s.add_runtime_dependency(%q<cancan_namespace>, ["~> 0.1.3"])
-  s.add_runtime_dependency(%q<devise>, ["~> 1.4.2"])
+  s.add_runtime_dependency(%q<devise>, ["~> 1.5.3"])
   s.add_runtime_dependency(%q<simple_form>, ["~> 1.4.2"])
   s.add_runtime_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
   s.add_runtime_dependency(%q<fastercsv>, ["~> 1.5.4"])
