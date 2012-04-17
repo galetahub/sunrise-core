@@ -15,7 +15,7 @@
   gem 'kaminari'
   gem 'cancan'
   gem 'cancan_namespace'
-  gem 'devise', '~> 1.4.2'
+  gem 'devise', '~> 1.5.3'
   gem 'simple_form'
   gem 'awesome_nested_set', '~> 2.0.1'
   gem 'fastercsv'
