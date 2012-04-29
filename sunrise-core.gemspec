@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<awesome_nested_set>, ["~> 2.0.1"])
   s.add_runtime_dependency(%q<fastercsv>, ["~> 1.5.4"])
   s.add_runtime_dependency(%q<ckeditor>, [">= 0"])
-  s.add_runtime_dependency(%q<galetahub-enum_field>, ["~> 0.1.4"])
+  s.add_runtime_dependency(%q<galetahub-enum_field>, ["~> 0.2.0"])
   s.add_runtime_dependency(%q<galetahub-salty_slugs>, ["~> 1.0.0"])
   s.add_runtime_dependency(%q<sunrise-file-upload>, ["~> 0.1.2"])
   

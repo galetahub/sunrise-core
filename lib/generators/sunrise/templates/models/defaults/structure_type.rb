@@ -1,4 +1,6 @@
 class StructureType < Sunrise::Models::StructureType
+  include EnumField::DefineEnum
+  
   define_enum do |builder|
     builder.member :page,     :object => new("page")
     builder.member :posts,    :object => new("posts")
